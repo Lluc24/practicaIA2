@@ -12,7 +12,7 @@
      (send ?visita put-dias 1)
      (send ?visita put-horas 1)
      (send ?visita put-conocimiento 0)
-     (send ?visita put-num_obras 1)
+     ;(send ?visita put-num_obras 1)
      (send ?visita put-preferencias "Biblico" "Leonardo da Vinci" "Siglo de Oro Espanol" "Neoclasicismo")
      (send ?visita put-grupo 1)
 )
@@ -56,7 +56,7 @@
      (printout t "Existe una con preferencia de tematica (" ?p ")" crlf)
      (assert (interes tematica))
 )
-
+/*
 (defrule moduloB::regla_num_obras
      (not (obras ?))
      (object (is-a Visita) (num_obras ?num))
@@ -69,7 +69,7 @@
           )
      )
 )
-
+*/
 
 (defrule moduloB::regla_conocimiento
      (not (conocimiento ?))

@@ -57,7 +57,7 @@
      )
      (printout t "[" ?i "] No añadir la preferencia" crlf)
      (bind ?elegido (read))
-     (if (< ?i ?elegido) then (entrar_preferencia ?clase)
+     (if (or (not (numberp ?elegido)) (or (< ?elegido 1) (< ?i ?elegido))) then (entrar_preferencia ?clase)
      else (if (neq ?i ?elegido) then
                (bind ?ret (nth$ ?elegido ?instancias))
                (bind ?ret (nth$ 1 (send ?ret get-nombre)))
@@ -95,7 +95,7 @@
           (bind ?preferencias (create$ ?preferencias (entrar_todas_las_preferencias)))    
      )
      (case 5 then
-          (bind ?preferencias (create$ ?preferencias (entrar_preferencia Epoca)))
+          (bind ?preferencias (create$ ?preferencias (entrar_preferencia Pais)))
           (bind ?preferencias (create$ ?preferencias (entrar_todas_las_preferencias)))
      )
      (case 6 then ?preferencias)

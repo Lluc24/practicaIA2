@@ -2,7 +2,7 @@
 ;;; ProtegeCambios.clp
 ;;; Translated by owl2clips
 ;;; Translated to CLIPS from ontology Ontologia.ttl
-;;; :Date 08/12/2024 18:05:27
+;;; :Date 08/12/2024 18:46:32
 
 (defclass Movimiento
     (is-a USER)
@@ -156,9 +156,6 @@
     (multislot preferencia
         (type INSTANCE)
         (create-accessor read-write))
-    (multislot grupo
-        (type STRING)
-        (create-accessor read-write))
     ;;; Conocimiento es un valor natural del 0 al 10 (ambos incluidos)
     (multislot conocimiento
         (type INTEGER)
@@ -166,11 +163,14 @@
     (multislot dias
         (type INTEGER)
         (create-accessor read-write))
+    (multislot grupo
+        (type SYMBOL)
+        (create-accessor read-write))
     (multislot horas
         (type INTEGER)
         (create-accessor read-write))
     (multislot preferencias
-        (type SYMBOL)
+        (type STRING)
         (create-accessor read-write))
 )
 
@@ -255,21 +255,6 @@
          (nombre  "Biblico")
     )
 
-    ([Alemania] of Pais
-         (nombre  "Alemania")
-    )
-
-    ([Belgica] of Pais
-    )
-
-    ([Espana] of Pais
-         (nombre  "Espana")
-    )
-
-    ([Paises_Bajos] of Pais
-         (nombre  "Paises Bajos")
-    )
-
     ([Adoracion_de_los_Reyes_Magos] of Obra
          (autor  [Peter_Paul_Rubens])
          (esta_en  [Sala5])
@@ -280,6 +265,10 @@
          (dimensiones  2.96)
          (nombre  "Adoracion de los Reyes Magos")
          (popularidad  8)
+    )
+
+    ([Alemania] of Pais
+         (nombre  "Alemania")
     )
 
     ([Antonello] of Pintor
@@ -325,6 +314,10 @@
          (pertenece_a_la_epoca  [Barroco])
          (nombre  "Bartolome Esteban Murillo")
          (popularidad  7)
+    )
+
+    ([Belgica] of Pais
+         (nombre  "Belgica")
     )
 
     ([Bodegon_con_Cacharros] of Obra
@@ -729,6 +722,10 @@
          (popularidad  9)
     )
 
+    ([Espana] of Pais
+         (nombre  "Espana")
+    )
+
     ([Fra_Angelico] of Pintor
          (nacionalidad  [Italia])
          (pertenece_a_la_epoca  [Renacimiento_temprano])
@@ -1075,6 +1072,10 @@
          (pertenece_a_la_epoca  [Renacimiento])
          (nombre  "Lucas Cranach el Viejo")
          (popularidad  8)
+    )
+
+    ([Paises_Bajos] of Pais
+         (nombre  "Paises Bajos")
     )
 
     ([Peter_Paul_Rubens] of Pintor

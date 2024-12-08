@@ -2,7 +2,7 @@
 ; # moduloB: MODULO DEL PROBLEMA ABSTRACTO              #
 ; #######################################################
 
-(defmodule moduloB (import MAIN defclass ?ALL))
+(defmodule moduloB (import MAIN defclass ?ALL) (export ?ALL))
 
 (defrule moduloB::regla_hay_preferencias_pintor
      (not (interes $? ?var&:(eq ?var pintor) $?))

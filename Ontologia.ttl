@@ -12,13 +12,6 @@
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/adri/ontologies/2024/10/nacionalidad
-:nacionalidad rdf:type owl:ObjectProperty ,
-                       owl:FunctionalProperty ;
-              rdfs:domain :Pintor ;
-              rdfs:range :Pais .
-
-
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#autor
 :autor rdf:type owl:ObjectProperty ;
        rdfs:subPropertyOf owl:topObjectProperty ;
@@ -41,6 +34,13 @@
          rdf:type owl:FunctionalProperty ;
          rdfs:domain :Obra ;
          rdfs:range :Sala .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#nacionalidad
+:nacionalidad rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain :Pintor ;
+              rdfs:range :Pais .
 
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#pertenece_a_la_epoca
@@ -81,13 +81,6 @@
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/adri/ontologies/2024/10/grupo
-:grupo rdf:type owl:DatatypeProperty ;
-       rdfs:subPropertyOf owl:topDataProperty ;
-       rdfs:domain :Visita ;
-       rdfs:range xsd:string .
-
-
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#complejidad
 :complejidad rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf owl:topDataProperty ;
@@ -126,6 +119,12 @@
            rdfs:range xsd:string .
 
 
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#grupo
+:grupo rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :Visita .
+
+
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#horas
 :horas rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf owl:topDataProperty ;
@@ -161,7 +160,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#preferencias
 :preferencias rdf:type owl:DatatypeProperty ;
               rdfs:subPropertyOf owl:topDataProperty ;
-              rdfs:domain :Visita .
+              rdfs:domain :Visita ;
+              rdfs:range xsd:string .
 
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#siglo
@@ -373,38 +373,6 @@
                                                         rdfs:label "Biblico" .
 
 
-###  http://www.semanticweb.org/adri/ontologies/2024/10/Alemania
-:Alemania rdf:type owl:NamedIndividual ,
-                   :Pais ;
-          :nombre "Alemania" .
-
-
-###  http://www.semanticweb.org/adri/ontologies/2024/10/Belgica
-:Belgica rdf:type owl:NamedIndividual ,
-                  :Pais .
-
-
-###  http://www.semanticweb.org/adri/ontologies/2024/10/Espana
-:Espana rdf:type owl:NamedIndividual ,
-                 :Pais ;
-        :nombre "Espana" .
-
-
-###  http://www.semanticweb.org/adri/ontologies/2024/10/Francisco_Bayeu_y_Subias
-:Francisco_Bayeu_y_Subias rdf:type owl:NamedIndividual ,
-                                   :Pintor ;
-                          :nacionalidad :Espana ;
-                          :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDEoeCd6SEk4O5qed4T1kXm> ;
-                          :nombre "Francisco Bayeu y Subias" ;
-                          :popularidad 4 .
-
-
-###  http://www.semanticweb.org/adri/ontologies/2024/10/Paises_Bajos
-:Paises_Bajos rdf:type owl:NamedIndividual ,
-                       :Pais ;
-              :nombre "Paises Bajos" .
-
-
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Adoracion_de_los_Reyes_Magos
 :Adoracion_de_los_Reyes_Magos rdf:type owl:NamedIndividual ,
                                        :Obra ;
@@ -417,6 +385,12 @@
                               :dimensiones 2.96 ;
                               :nombre "Adoracion de los Reyes Magos" ;
                               :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Alemania
+:Alemania rdf:type owl:NamedIndividual ,
+                   :Pais ;
+          :nombre "Alemania" .
 
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Antonello
@@ -472,6 +446,12 @@
                            :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
                            :nombre "Bartolome Esteban Murillo" ;
                            :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Belgica
+:Belgica rdf:type owl:NamedIndividual ,
+                  :Pais ;
+         :nombre "Belgica" .
 
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Bodegon_con_Cacharros
@@ -948,6 +928,12 @@
                          :popularidad 9 .
 
 
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Espana
+:Espana rdf:type owl:NamedIndividual ,
+                 :Pais ;
+        :nombre "Espana" .
+
+
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Fra_Angelico
 :Fra_Angelico rdf:type owl:NamedIndividual ,
                        :Pintor ;
@@ -961,6 +947,15 @@
 :Francia rdf:type owl:NamedIndividual ,
                   :Pais ;
          :nombre "Francia" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Francisco_Bayeu_y_Subias
+:Francisco_Bayeu_y_Subias rdf:type owl:NamedIndividual ,
+                                   :Pintor ;
+                          :nacionalidad :Espana ;
+                          :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDEoeCd6SEk4O5qed4T1kXm> ;
+                          :nombre "Francisco Bayeu y Subias" ;
+                          :popularidad 4 .
 
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Francisco_de_Goya
@@ -1354,6 +1349,12 @@
                         :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
                         :nombre "Lucas Cranach el Viejo" ;
                         :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Paises_Bajos
+:Paises_Bajos rdf:type owl:NamedIndividual ,
+                       :Pais ;
+              :nombre "Paises Bajos" .
 
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Peter_Paul_Rubens

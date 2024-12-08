@@ -4,7 +4,13 @@
 
 (defmodule MAIN (export ?ALL))
 
-(defmodule moduloA (import MAIN ?ALL) (export ?ALL))
+(defmodule moduloA (import MAIN defclass ?ALL))
+
+(defrule MAIN::regla_inicial
+     (test (eq TRUE TRUE))
+     =>
+     (focus moduloA)
+)
 
 (deffunction moduloA::entrar_entero
      (?pregunta ?valor_min ?valor_max)
@@ -40,68 +46,6 @@
      )
      ?ret
 )
-;no se usa
-(deffunction moduloA::que_clase_es
-     (?nombre_desconocido)
-     (printout t ?nombre_desconocido crlf)
-     (bind ?trobat FALSE)
-
-     ;mira si es pintor
-     (bind ?instancias (find-all-instances ((?instance Pintor)) TRUE))
-     (bind ?i 1)
-     (while (and (eq ?trobat FALSE) (<= ?i (length$ ?instancias)))
-          do
-          (bind ?instancia (nth$ ?i ?instancias))
-          (printout t (nth$ 1 (send ?instancia get-nombre)) crlf)
-          (if (eq ?nombre_desconocido (nth$ 1 (send ?instancia get-nombre)))
-               then (bind ?trobat TRUE)
-          )
-          (bind ?i (+ ?i 1))
-     )
-     (printout t ?i (length$ ?instancias)) 
-     (if (eq ?trobat TRUE)
-     
-          then Pintor
-     )
-     
-     ;mira si es obra
-     (bind ?instancias (find-all-instances ((?instance Tematica)) TRUE))
-     (bind ?i 1)
-     (while (and (eq ?trobat FALSE) (<= ?i (length$ ?instancias)))
-          do
-          ;(printout t (send ?instancias get-nombre) clrf)
-          (bind ?instancia (nth$ ?i ?instancias))
-          (printout t (nth$ 1 (send ?instancia get-nombre)) crlf)
-          (if (eq ?nombre_desconocido (nth$ 1 (send ?instancia get-nombre)))
-               then (bind ?trobat TRUE)
-          )
-          (bind ?i (+ ?i 1))
-     )
-     (printout t ?i (length$ ?instancias))
-     (if (eq ?trobat TRUE)
-          then Tematica
-     )
-     
-     ;mira si es obra
-     (bind ?instancias (find-all-instances ((?instance Movimiento)) TRUE))
-     (bind ?i 1)
-     (while (and (eq ?trobat FALSE) (<= ?i (length$ ?instancias)))
-          do
-          ;(printout t (send ?instancias get-nombre) clrf)
-          (bind ?instancia (nth$ ?i ?instancias))
-          (printout t (nth$ 1 (send ?instancia get-nombre)) crlf)
-          (if (eq ?nombre_desconocido (nth$ 1 (send ?instancia get-nombre)))
-               then (bind ?trobat TRUE)
-          )  
-          (bind ?i (+ ?i 1))
-     )
-     (printout t ?i (length$ ?instancias))
-     (if (eq ?trobat TRUE)
-          then Movimiento
-     )
-
-     Epoca
-)
 
 (deffunction moduloA::entrar_preferencia
      (?clase)
@@ -128,8 +72,8 @@
      (printout t "[2] Preferencia por alguna tematica" crlf)
      (printout t "[3] Preferencia por algun movimiento" crlf)
      (printout t "[4] Preferencia por alguna epoca" crlf)
-     ;(printout t "[5] Preferencia por obras de paises concretos" crlf)
-     (printout t "[5] No hay mas preferencias" crlf)
+     (printout t "[5] Preferencia por obras de paises concretos" crlf)
+     (printout t "[6] No hay mas preferencias" crlf)
      (bind ?num (read))
      (switch ?num
      (case 1 then 
@@ -148,57 +92,12 @@
           (bind ?preferencias (create$ ?preferencias (entrar_preferencia Epoca)))
           (bind ?preferencias (create$ ?preferencias (entrar_todas_las_preferencias)))    
      )
-     ;(case 5 then
-     ;    (bind ?preferencias ?preferencias (entrar_preferencia ?paises) (entrar_todas_las_preferencias))
-     ;)
-     (case 5 then ?preferencias)
+     (case 5 then
+          (bind ?preferencias (create$ ?preferencias (entrar_preferencia Epoca)))
+          (bind ?preferencias (create$ ?preferencias (entrar_todas_las_preferencias)))
+     )
+     (case 6 then ?preferencias)
      (default (entrar_todas_las_preferencias))
-     )
-)
-
-(defrule moduloA::Solucion
-     (conocimiento_filtrado ?c)
-     (tiempoObras ?t)
-     =>
-     (if (or (eq ?t BAJO) (eq ?c BAJO))
-     then 
-     (assert (solucion_profundidad BAJA))
-     else 
-     (if (or (eq ?t MEDIO) (eq ?c MEDIO))
-          then 
-          (assert (solucion_profundidad MEDIA))
-     else 
-          (assert (solucion_profundidad ALTA))
-     )
-     )
-)
-
-
-(defrule moduloA::AbstraerConocimiento
-     (conocimiento ?conocimiento)
-     => 
-     (if (< ?conocimiento 4)
-     then (assert (conocimiento_filtrado BAJO))
-     else (if (< ?conocimiento 7)
-          then (assert (conocimiento_filtrado MEDIO))
-          else (assert (conocimiento_filtrado ALTO))
-          ) 
-     
-     )
-)
-
-(defrule moduloA::AbstraerTiempoObras
-     (numero_obras ?numero_obras)
-     (horas ?horas)
-     =>
-     (if (< (/ ?numero_obras ?horas) 66) 
-     then 
-     (assert (tiempoObras ALTO))
-     else 
-     (if (< (/ ?numero_obras ?horas) 133)
-          then (assert (tiempoObras MEDIO))
-     else (assert (tiempoObras BAJO))     
-     )
      )
 )
 
@@ -232,18 +131,11 @@
      (assert (conocimiento (entrar_entero "¿Que grado de conocimiento en arte tiene?" 0 10)))
 )
 
-(defrule moduloA::entrar_numero_obras
-     (not (numero_obras ?))
-     =>
-     (assert (numero_obras (entrar_entero "¿Cuantas obras quieres ver por dia?" 1 200)))
-)
-
 
 (defrule moduloA::asignar_a_visita
      (conocimiento ?conocimiento)
      (dias ?dias)
      (horas ?horas)
-     (numero_obras ?num_obras)
      (preferencia $?preferencia)
      (grupo $?grupo)
      =>
@@ -251,7 +143,12 @@
      (send ?v put-conocimiento ?conocimiento)
      (send ?v put-dias ?dias)
      (send ?v put-horas ?horas)
-     (send ?v put-num_obras ?num_obras)
      (send ?v put-preferencias ?preferencia)
      (send ?v put-grupo ?grupo)
+)
+
+(defrule moduloA::cambio_a_moduloB
+     (object (is-a Visita) (conocimiento ?) (dias ?) (horas ?) (preferencias $?) (grupo $?))
+     =>
+     (focus moduloB)
 )

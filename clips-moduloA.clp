@@ -113,10 +113,12 @@
      )
      (printout t "[" ?i "] No añadir la preferencia" crlf)
      (bind ?elegido (read))
-     (if(neq ?i ?elegido) then 
-     (bind ?ret (nth$ ?elegido ?instancias))
-     (bind ?ret (nth$ 1 (send ?ret get-nombre)))
-     ?ret   
+     (if (< ?i ?elegido) then (entrar_preferencia ?clase)
+     else (if (neq ?i ?elegido) then
+               (bind ?ret (nth$ ?elegido ?instancias))
+               (bind ?ret (nth$ 1 (send ?ret get-nombre)))
+               ?ret
+     )
      )
 )
 

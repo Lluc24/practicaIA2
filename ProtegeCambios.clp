@@ -1,8 +1,8 @@
 ;;; ---------------------------------------------------------
 ;;; ProtegeCambios.clp
 ;;; Translated by owl2clips
-;;; Translated to CLIPS from ontology Ontologia-V3.ttl
-;;; :Date 08/12/2024 16:27:47
+;;; Translated to CLIPS from ontology Ontologia.ttl
+;;; :Date 08/12/2024 18:05:27
 
 (defclass Movimiento
     (is-a USER)
@@ -135,7 +135,7 @@
     (multislot contigua_a
         (type INSTANCE)
         (create-accessor read-write))
-    (slot nombre
+    (multislot nombre
         (type STRING)
         (create-accessor read-write))
 )
@@ -157,7 +157,7 @@
         (type INSTANCE)
         (create-accessor read-write))
     (multislot grupo
-        (type SYMBOL)
+        (type STRING)
         (create-accessor read-write))
     ;;; Conocimiento es un valor natural del 0 al 10 (ambos incluidos)
     (multislot conocimiento
@@ -175,83 +175,83 @@
 )
 
 (definstances instances
-    ([Gotico_Internacional] of Estilo
-         (nombre  "Gotico Internacional")
+    ([R7UjkIiR2fjXzeKkji1MY1l] of Estilo
+         (nombre  "Gotico_Internacional")
     )
 
-    ([Retrato] of Tematica
+    ([R85Rk6FdCCaASkyXGpyFqvn] of Tematica
          (nombre  "Retrato")
     )
 
-    ([Costumbrista] of Tematica
+    ([R8gA8NA0YPE7ramA7D0Rwq8] of Tematica
          (nombre  "Costumbrista")
     )
 
-    ([Historico] of Tematica
+    ([R8lFZHymIxM5rOaG8Ci4Rwn] of Tematica
          (nombre  "Historico")
     )
 
-    ([Renacimiento_Temprano] of Epoca
+    ([R9joZjx9kj4bLs6toW0un0g] of Epoca
          (nombre  "Renacimiento Temprano")
     )
 
-    ([Romanticismo] of Corriente
+    ([R9q9fACeutf0vF2kfsAK1ft] of Corriente
          (nombre  "Romanticismo")
     )
 
-    ([Alegorico] of Tematica
+    ([RB3VEWwuYiGjeM8bBe194BC] of Tematica
          (nombre  "Alegorico")
     )
 
-    ([Gotico_Flamenco] of Escuela
+    ([RBi2uKSxGI0CUpbK7kAnoEd] of Escuela
          (nombre  "Gotico Flamenco")
     )
 
-    ([Siglo_XIX] of Epoca
+    ([RC811Wq4dQab2ER4WaZa2oa] of Epoca
          (nombre  "Siglo XIX")
     )
 
-    ([Siglo_XVII] of Epoca
+    ([RCksGlG0aLSAXykyybz6uQi] of Epoca
          (nombre  "Siglo XVII")
     )
 
-    ([Mitologico] of Tematica
+    ([RCv3q6THjYQY8gaZsl59mvg] of Tematica
          (nombre  "Mitologico")
     )
 
-    ([Neoclasicismo] of Estilo
+    ([RD24wXCtqjw5iFzancr678Z] of Estilo
          (nombre  "Neoclasicismo")
     )
 
-    ([Naturaleza_muerta] of Tematica
+    ([RDAKxnr3hZIhfWOzAWP35i9] of Tematica
          (nombre  "Naturaleza muerta")
     )
 
-    ([Siglo_XVIII-XIX] of Epoca
+    ([RDEoeCd6SEk4O5qed4T1kXm] of Epoca
          (nombre  "Siglo XVIII-XIX")
     )
 
-    ([Renacimiento] of Periodo_Pictorico
+    ([RDNTaEdqVqd5unwzX6tb7D8] of Periodo_Pictorico
          (nombre  "Renacimiento")
     )
 
-    ([Paisaje] of Tematica
+    ([RDSAfAtiCShSR64jVRR7L4n] of Tematica
          (nombre  "Paisaje")
     )
 
-    ([Siglo_de_Oro_Espanol] of Epoca
+    ([RhFmd2RPdlzxenDJVG2e8p] of Epoca
          (nombre  "Siglo de Oro Espanol")
     )
 
-    ([Barroco] of Estilo
+    ([RndcuGUYjxB4N8SGQclSS1] of Estilo
          (nombre  "Barroco")
     )
 
-    ([Religiosa] of Tematica
+    ([RtuKZIHfmkIcy0raSXYPsI] of Tematica
          (nombre  "Religiosa")
     )
 
-    ([Biblico] of Tematica
+    ([Rx9viDsujfLuCpTjfYZhKT] of Tematica
          (nombre  "Biblico")
     )
 
@@ -264,13 +264,6 @@
 
     ([Espana] of Pais
          (nombre  "Espana")
-    )
-
-    ([Francisco_Bayeu_y_Subias] of Pintor
-         (nacionalidad  [Espana])
-         (pertenece_a_la_epoca  [Siglo_XVIII-XIX])
-         (nombre  "Francisco Bayeu y Subias")
-         (popularidad  4)
     )
 
     ([Paises_Bajos] of Pais
@@ -745,6 +738,13 @@
 
     ([Francia] of Pais
          (nombre  "Francia")
+    )
+
+    ([Francisco_Bayeu_y_Subias] of Pintor
+         (nacionalidad  [Espana])
+         (pertenece_a_la_epoca  [Siglo_XVIII-XIX])
+         (nombre  "Francisco Bayeu y Subias")
+         (popularidad  4)
     )
 
     ([Francisco_de_Goya] of Pintor

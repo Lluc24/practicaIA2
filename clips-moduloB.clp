@@ -4,26 +4,12 @@
 
 (defmodule moduloB (import MAIN defclass ?ALL))
 
-(defrule moduloB::no_hay_visita
-     (not (object (is-a Visita)))
-     =>
-     (printout t "Creando la instancia visita" crlf)
-     (bind ?visita (make-instance visita of Visita))
-     (send ?visita put-dias 1)
-     (send ?visita put-horas 1)
-     (send ?visita put-conocimiento 0)
-     ;(send ?visita put-num_obras 1)
-     (send ?visita put-preferencias "Biblico" "Leonardo da Vinci" "Siglo de Oro Espanol" "Neoclasicismo")
-     (send ?visita put-grupo 1)
-)
-
 (defrule moduloB::regla_hay_preferencias_pintor
      (not (interes $? ?var&:(eq ?var pintor) $?))
      (object (is-a Visita) (preferencias $? ?p $?))
      (object (is-a Pintor) (nombre ?nombre))
      (test (eq (str-compare ?nombre ?p) 0))
      =>
-     (printout t "Existe una con preferencia de pintor (" ?p ")" crlf)
      (assert (interes pintor))
 )
 
@@ -33,7 +19,6 @@
      (object (is-a Movimiento) (nombre ?nombre))
      (test (eq (str-compare ?nombre ?p) 0))
      =>
-     (printout t "Existe una con preferencia de movimiento (" ?p ")" crlf)
      (assert (interes movimiento))
 )
 
@@ -43,7 +28,6 @@
      (object (is-a Epoca) (nombre ?nombre))
      (test (eq (str-compare ?nombre ?p) 0))
      =>
-     (printout t "Existe una con preferencia de epoca (" ?p ")" crlf)
      (assert (interes epoca))
 )
 
@@ -53,23 +37,49 @@
      (object (is-a Tematica) (nombre ?nombre))
      (test (eq (str-compare ?nombre ?p) 0))
      =>
-     (printout t "Existe una con preferencia de tematica (" ?p ")" crlf)
      (assert (interes tematica))
 )
-/*
+
 (defrule moduloB::regla_num_obras
      (not (obras ?))
-     (object (is-a Visita) (num_obras ?num))
+     (object (is-a Visita) (dias ?dias) (horas ?horas) (grupo ?tam_grupo $?crios_o_jubilados) (preferencias $?prefs))
      =>
-     (if (<= ?num 20)
-          then (assert (obras pocas))
-          else (if (<= ?num 40)
-               then (assert (obras normal))
-               else (assert (obras muchas))
+     (bind ?puntuacion 0)
+     (if (>= ?dias 4)
+          then (bind ?puntuacion (+ ?puntuacion 2))
+          else (if (>= ?dias 2)
+               then (bind ?puntuacion (+ ?puntuacion 1))
           )
      )
+     (if (>= ?horas 9)
+          then (bind ?puntuacion (+ ?puntuacion 2))
+          else (if (>= ?horas 5)
+               then (bind ?puntuacion (+ ?puntuacion 1))
+          )
+     )
+     (if (< (string-to-field (str-cat ?tam_grupo)) 4)
+          then (bind ?puntuacion (+ ?puntuacion 2))
+          else (if (< (string-to-field (str-cat ?tam_grupo)) 10)
+               then (bind ?puntuacion (+ ?puntuacion 1))
+          )
+     )
+     (bind ?puntuacion (- 2 (length$ crios_o_jubilados)))
+     (if (< (length$ ?prefs) 4)
+          then (bind ?puntuacion (+ ?puntuacion 2))
+          else (if (< (length$ ?prefs) 10)
+               then (bind ?puntuacion (+ ?puntuacion 1))
+          )
+     )
+     (if (>= ?puntuacion 7)
+          then (assert (obras bajo))
+          else (if (>= ?puntuacion 4)
+               then (assert (obras medio))
+               else (assert (obras alto))
+          )
+     )
+     (printout t "Puntuacion: " ?puntuacion crlf)
 )
-*/
+
 
 (defrule moduloB::regla_conocimiento
      (not (conocimiento ?))
@@ -102,7 +112,7 @@
      (not (descansos ?))
      (object (is-a Visita) (grupo ? $?crios_o_jubilados))
      =>
-     (if (> (length$ crios_o_jubilados) 0)
+     (if (> (length$ ?crios_o_jubilados) 0)
           then (assert (descansos si))
           else (assert (descansos no))
      )

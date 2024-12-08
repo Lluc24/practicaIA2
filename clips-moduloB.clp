@@ -63,7 +63,7 @@
                then (bind ?puntuacion (+ ?puntuacion 1))
           )
      )
-     (bind ?puntuacion (- 2 (length$ crios_o_jubilados)))
+     (bind ?puntuacion (- 2 (length$ ?crios_o_jubilados)))
      (if (< (length$ ?prefs) 4)
           then (bind ?puntuacion (+ ?puntuacion 2))
           else (if (< (length$ ?prefs) 10)
@@ -77,7 +77,6 @@
                else (assert (obras alto))
           )
      )
-     (printout t "Puntuacion: " ?puntuacion crlf)
 )
 
 
@@ -116,4 +115,17 @@
           then (assert (descansos si))
           else (assert (descansos no))
      )
+)
+
+(defrule moduloB::cambiar_a_moduloC
+     (declare (salience -10))
+     (tiempo ?)
+     (descansos ?)
+     (conocimiento ?)
+     (obras ?)
+     =>
+     (printout t "Facts: " crlf)
+     (facts)
+     (printout t "Cambio a moduloC" crlf)
+     (focus moduloC)
 )

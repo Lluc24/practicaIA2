@@ -9,6 +9,9 @@
 (defrule MAIN::regla_inicial
      (test (eq TRUE TRUE))
      =>
+     (printout t "Facts:" crlf)
+     (facts)
+     (printout t "Cambio a moduloA" crlf)
      (focus moduloA)
 )
 
@@ -150,5 +153,8 @@
 (defrule moduloA::cambio_a_moduloB
      (object (is-a Visita) (conocimiento ?) (dias ?) (horas ?) (preferencias $?) (grupo $?))
      =>
+     (printout t "Facts: " crlf)
+     (facts)
+     (printout t "Cambio a moduloB" crlf)
      (focus moduloB)
 )

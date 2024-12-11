@@ -150,7 +150,7 @@
      (send ?v put-grupo ?grupo)
 )
 
-(defrule moduloA::cambio_a_moduloB
+(defrule moduloA::cambiar_a_moduloB
      (object (is-a Visita) (conocimiento ?) (dias ?) (horas ?) (preferencias $?) (grupo $?))
      =>
      (printout t "Facts: " crlf)

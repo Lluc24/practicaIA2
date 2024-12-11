@@ -66,5 +66,8 @@
 (defrule moduloC::cambiar_moduloD
      (declare (salience -10))
      =>
+     (printout t "Facts: " crlf)
+     (facts)
+     (printout t "Cambio a moduloD" crlf)
      (focus moduloD)
 )

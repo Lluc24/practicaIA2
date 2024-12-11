@@ -2,7 +2,7 @@
 ; # moduloD: MODULO DE LA SOLUCION CONCRETA             #
 ; #######################################################
 
-(defmodule moduloD (import MAIN defclass ?ALL) (export ?ALL))
+(defmodule moduloD (import MAIN defclass ?ALL) (import moduloC ?ALL) (export ?ALL))
 
 (deffunction moduloD::frecuencia
     (?obra ?cjt_obras)
@@ -15,62 +15,63 @@
     ?contador
 )
 
-(defrule moduloD::no_hay_visita
-     (not (object (is-a Visita)))
-     =>
-     (printout t "Creando la instancia visita" crlf)
-     (bind ?visita (make-instance visita of Visita))
-     (send ?visita put-dias 2)
-     (send ?visita put-horas 1)
-     (send ?visita put-conocimiento 0)
-     (send ?visita put-num_obras 1)
-     (send ?visita put-preferencias "Biblico" "Leonardo da Vinci" "Siglo de Oro Espanol" "Neoclasicismo")
-     (send ?visita put-grupo 1 crios)
-)
-
 (defrule moduloD::regla_inicial
-    (not (obras_dia $?))
-    (not (num_obras_dia $?))
+    (not (obras_por_dia_a_rellenar $?))
+    (not (obras_por_dia $?))
     (not (obras_recorrido $?))
     (obrashora ?v)
     (object (is-a Visita) (dias ?dias) (horas ?horas))
     =>
-    (bind ?obras_dia (create$))
+    (bind ?obras_por_dia (create$))
     (loop-for-count (?i 1 ?dias) do
         (switch ?v
             (case muy_lento ; 2 obras/hora aprox
-                then (bind ?obras_dia ?obras_dia (* ?horas 2))
+                then (bind ?obras_por_dia ?obras_por_dia (* ?horas 2))
             )
             (case lento ; 3 obras/hora aprox
-                then (bind ?obras_dia ?obras_dia (* ?horas 3))
+                then (bind ?obras_por_dia ?obras_por_dia (* ?horas 3))
             )
             (case medio ; 5 obras/hora aprox
-                then (bind ?obras_dia ?obras_dia (* ?horas 5))
+                then (bind ?obras_por_dia ?obras_por_dia (* ?horas 5))
             )
             (case rapido ; 10 obras/hora aprox
-                then (bind ?obras_dia ?obras_dia (* ?horas 10))
+                then (bind ?obras_por_dia ?obras_por_dia (* ?horas 10))
             )
             (case muy_rapido ; 20 obras/hora aprox
-                then (bind ?obras_dia ?obras_dia (* ?horas 20))
+                then (bind ?obras_por_dia ?obras_por_dia (* ?horas 20))
             )
         )
     )
-    (assert (obras_dia ?obras_dia))
-    (assert (num_obras_dia ?obras_dia))
+    (assert (obras_por_dia_a_rellenar ?obras_por_dia))
+    (assert (obras_por_dia ?obras_por_dia))
     (assert (obras_recorrido))
 )
 
-(defrule moduloD::regla_rellenar_dias
-    ;(tipo_visita ?tipo&:(eq ?tipo turistica))
-    ?obras_dia <- (obras_dia $?slice1 ?dia_objetivo&:(> ?dia_objetivo 0) $?slice2)
+(defrule moduloD::regla_rellenar_autores_turistica
+    (tipo_visita ?tipo&:(eq ?tipo turistica))
+    ?obras_por_dia_a_rellenar <- (obras_por_dia_a_rellenar $?slice1 ?dia_objetivo&:(> ?dia_objetivo 0) $?slice2)
     (test (or (eq (length$ ?slice1) 0) (eq (nth$ (length$ ?slice1) ?slice1) 0)))
-    (object (is-a Visita) (dias ?dias))
+    (object (is-a Visita) (preferencias $? ?preferencia_por_autor $?))
     ?obras_recorrido <- (obras_recorrido $?cjt_obras)
-    ?instancia_obra <- (object (is-a Obra) (nombre ?nombre) (popularidad ?popularidad))
+    ?instancia_obra <- (object (is-a Obra) (autor ?pintor) (popularidad ?popularidad))
+    ?instancia_pintor <- (object (is-a Pintor) (name ?pintor) (nombre ?preferencia_por_autor))
     (test (eq (length$ (find-all-instances ((?v Obra)) (< (frecuencia ?v ?cjt_obras) (frecuencia ?instancia_obra ?cjt_obras)))) 0))
     =>
+    ;(printout t ?pintor " || " ?preferencia_por_autor " || " ?instancia_pintor crlf)
+    (printout t "Se inserta la obra " ?instancia_obra " de " ?pintor " por la regla_rellenar_autores_turistica" crlf)
+)
+
+(defrule moduloD::regla_rellenar_resto
+    (declare (salience -10))
+    ?obras_por_dia_a_rellenar <- (obras_por_dia_a_rellenar $?slice1 ?dia_objetivo&:(> ?dia_objetivo 0) $?slice2)
+    (test (or (eq (length$ ?slice1) 0) (eq (nth$ (length$ ?slice1) ?slice1) 0)))
+    ?obras_recorrido <- (obras_recorrido $?cjt_obras)
+    ?instancia_obra <- (object (is-a Obra))
+    (test (eq (length$ (find-all-instances ((?v Obra)) (< (frecuencia ?v ?cjt_obras) (frecuencia ?instancia_obra ?cjt_obras)))) 0))
+    =>
+    (printout t "Se inserta la obra " ?instancia_obra " por la regla_rellenar_resto" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
-    (retract ?obras_dia)
-    (assert (obras_dia ?slice1 (- ?dia_objetivo 1) ?slice2))
+    (retract ?obras_por_dia_a_rellenar)
+    (assert (obras_por_dia_a_rellenar ?slice1 (- ?dia_objetivo 1) ?slice2))
 )

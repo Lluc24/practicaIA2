@@ -124,8 +124,8 @@
      (conocimiento ?)
      (obras ?)
      =>
-     (printout t "Facts: " crlf)
-     (facts)
-     (printout t "Cambio a moduloC" crlf)
+     ;(printout t "Facts: " crlf)
+     ;(facts)
+     ;(printout t "Cambio a moduloC" crlf)
      (focus moduloC)
 )

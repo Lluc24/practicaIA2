@@ -9,9 +9,9 @@
 (defrule MAIN::regla_inicial
      (test (eq TRUE TRUE))
      =>
-     (printout t "Facts:" crlf)
-     (facts)
-     (printout t "Cambio a moduloA" crlf)
+     ;(printout t "Facts:" crlf)
+     ;(facts)
+     ;(printout t "Cambio a moduloA" crlf)
      (focus moduloA)
 )
 
@@ -40,11 +40,11 @@
 
 (deffunction moduloA::entrar_tipo_de_grupo
      ()
-     (bind ?ret (entrar_entero "¿Cuantas personas sois?" 1 100))
-     (if (entrar_pregunta_binaria "¿Hay niños?")
+     (bind ?ret (entrar_entero "Cuantas personas sois?" 1 100))
+     (if (entrar_pregunta_binaria "Hay ninos?")
      then (bind ?ret ?ret crios)
      )
-     (if (entrar_pregunta_binaria "¿Hay jubilados?")
+     (if (entrar_pregunta_binaria "Hay jubilados?")
      then (bind ?ret ?ret jubilados)
      )
      ?ret
@@ -60,23 +60,25 @@
      )
      (printout t "[" ?i "] No anadir la preferencia" crlf)
      (bind ?elegido (read))
-     (if(neq ?i ?elegido) then 
-     (bind ?ret (nth$ ?elegido ?instancias))
-     (bind ?ret (nth$ 1 (send ?ret get-nombre)))
-     ?ret   
+     (if (and (> ?elegido 0) (< ?elegido ?i)) 
+          then 
+               (bind ?ret (nth$ ?elegido ?instancias))
+               (bind ?ret (nth$ 1 (send ?ret get-nombre)))
+               ?ret
+          else 
+               (entrar_preferencia ?clase)
      )
 )
 
 (deffunction moduloA::entrar_todas_las_preferencias
      ()
      (bind ?preferencias (create$ ))
-     (printout t "¿Que tipo de preferencia quiere añadir?" crlf)
+     (printout t "Que tipo de preferencia quiere anadir?" crlf)
      (printout t "[1] Preferencia por algun autor" crlf)
      (printout t "[2] Preferencia por alguna tematica" crlf)
      (printout t "[3] Preferencia por algun movimiento" crlf)
      (printout t "[4] Preferencia por alguna epoca" crlf)
-     (printout t "[5] Preferencia por obras de paises concretos" crlf)
-     (printout t "[6] No hay mas preferencias" crlf)
+     (printout t "[5] No hay mas preferencias" crlf)
      (bind ?num (read))
      (switch ?num
      (case 1 then 
@@ -95,11 +97,7 @@
           (bind ?preferencias (create$ ?preferencias (entrar_preferencia Epoca)))
           (bind ?preferencias (create$ ?preferencias (entrar_todas_las_preferencias)))    
      )
-     (case 5 then
-          (bind ?preferencias (create$ ?preferencias (entrar_preferencia Epoca)))
-          (bind ?preferencias (create$ ?preferencias (entrar_todas_las_preferencias)))
-     )
-     (case 6 then ?preferencias)
+     (case 5 then ?preferencias)
      (default (entrar_todas_las_preferencias))
      )
 )
@@ -113,13 +111,13 @@
 (defrule moduloA::entrar_dias
      (not (dias ?))
      =>
-     (assert (dias (entrar_entero "¿En cuantos dias desea visitar el museo?" 1 5)))
+     (assert (dias (entrar_entero "En cuantos dias desea visitar el museo?" 1 3)))
 )
 
 (defrule moduloA::entrar_horas
      (not (horas ?))
      =>
-     (assert (horas (entrar_entero "¿Cuantas horas quiere que dure una visita de un dia?" 1 12)))
+     (assert (horas (entrar_entero "Cuantas horas quiere que dure una visita de un dia?" 1 8)))
 )
 
 (defrule moduloA::entrar_grupo
@@ -131,7 +129,7 @@
 (defrule moduloA::entrar_conocimiento
      (not (conocimiento ?))
      =>
-     (assert (conocimiento (entrar_entero "¿Que grado de conocimiento en arte tiene?" 0 10)))
+     (assert (conocimiento (entrar_entero "Que grado de conocimiento en arte tiene?" 0 10)))
 )
 
 
@@ -153,8 +151,8 @@
 (defrule moduloA::cambiar_a_moduloB
      (object (is-a Visita) (conocimiento ?) (dias ?) (horas ?) (preferencias $?) (grupo $?))
      =>
-     (printout t "Facts: " crlf)
-     (facts)
-     (printout t "Cambio a moduloB" crlf)
+     ;(printout t "Facts: " crlf)
+     ;(facts)
+     ;(printout t "Cambio a moduloB" crlf)
      (focus moduloB)
 )

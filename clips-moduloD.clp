@@ -64,7 +64,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?pintor " ubicada en " ?sala " por la regla_rellenar_autores_turistica_misma_sala" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?pintor " ubicada en " ?sala " por la regla_rellenar_autores_turistica_misma_sala" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -93,7 +93,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala2))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?pintor " ubicada en " ?sala1 " por la regla_rellenar_autores_turistica_sala_contigua" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?pintor " ubicada en " ?sala1 " por la regla_rellenar_autores_turistica_sala_contigua" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -117,7 +117,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?pintor " ubicada en " ?sala " por la regla_rellenar_autores_intelectual_misma_sala" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?pintor " ubicada en " ?sala " por la regla_rellenar_autores_intelectual_misma_sala" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -146,7 +146,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala2))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?pintor " ubicada en " ?sala1 " por la regla_rellenar_autores_intelectual_sala_contigua" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?pintor " ubicada en " ?sala1 " por la regla_rellenar_autores_intelectual_sala_contigua" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -170,7 +170,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?tematica " ubicada en " ?sala " por la regla_rellenar_tematicas_turistica_misma_sala" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?tematica " ubicada en " ?sala " por la regla_rellenar_tematicas_turistica_misma_sala" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -199,7 +199,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala2))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?tematica " ubicada en " ?sala1 " por la regla_rellenar_tematicas_turistica_sala_contigua" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?tematica " ubicada en " ?sala1 " por la regla_rellenar_tematicas_turistica_sala_contigua" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -223,7 +223,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?tematica " ubicada en " ?sala " por la regla_rellenar_tematicas_intelectual_misma_sala" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?tematica " ubicada en " ?sala " por la regla_rellenar_tematicas_intelectual_misma_sala" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -252,7 +252,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala2))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?tematica " ubicada en " ?sala1 " por la regla_rellenar_tematicas_intelectual_sala_contigua" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?tematica " ubicada en " ?sala1 " por la regla_rellenar_tematicas_intelectual_sala_contigua" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -276,7 +276,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?movimento " ubicada en " ?sala " por la regla_rellenar_movimientos_turistica_misma_sala" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?movimento " ubicada en " ?sala " por la regla_rellenar_movimientos_turistica_misma_sala" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -305,7 +305,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala2))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?movimiento " ubicada en " ?sala1 " por la regla_rellenar_movimientos_turistica_sala_contigua" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?movimiento " ubicada en " ?sala1 " por la regla_rellenar_movimientos_turistica_sala_contigua" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -329,7 +329,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?movimiento " ubicada en " ?sala " por la regla_rellenar_movimientos_intelectual_misma_sala" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?movimiento " ubicada en " ?sala " por la regla_rellenar_movimientos_intelectual_misma_sala" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -358,7 +358,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala2))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?movimiento " ubicada en " ?sala1 " por la regla_rellenar_movimientos_intelectual_sala_contigua" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?movimiento " ubicada en " ?sala1 " por la regla_rellenar_movimientos_intelectual_sala_contigua" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -382,7 +382,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?epoca " ubicada en " ?sala " por la regla_rellenar_epocas_turistica_misma_sala" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?epoca " ubicada en " ?sala " por la regla_rellenar_epocas_turistica_misma_sala" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -411,7 +411,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala2))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?epoca " ubicada en " ?sala1 " por la regla_rellenar_epocas_turistica_sala_contigua" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?epoca " ubicada en " ?sala1 " por la regla_rellenar_epocas_turistica_sala_contigua" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -435,7 +435,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?epoca " ubicada en " ?sala " por la regla_rellenar_epocas_intelectual_misma_sala" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?epoca " ubicada en " ?sala " por la regla_rellenar_epocas_intelectual_misma_sala" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -464,7 +464,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala2))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?epoca " ubicada en " ?sala1 " por la regla_rellenar_epocas_intelectual_sala_contigua" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?epoca " ubicada en " ?sala1 " por la regla_rellenar_epocas_intelectual_sala_contigua" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -483,7 +483,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?pintor " ubicada en " ?sala " por la regla_rellenar_resto_misma_sala" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?pintor " ubicada en " ?sala " por la regla_rellenar_resto_misma_sala" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -506,7 +506,7 @@
     ?obra_previa <- (object (is-a Obra) (esta_en ?sala2))
     (test (or (eq (length$ ?cjt_obras) 0) (eq ?obra_previa (nth$ (length$ ?cjt_obras) ?cjt_obras))))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?pintor " ubicada en " ?sala1 " por la regla_rellenar_resto_sala_contigua" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?pintor " ubicada en " ?sala1 " por la regla_rellenar_resto_sala_contigua" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -522,7 +522,7 @@
     ?instancia_obra <- (object (is-a Obra) (name ?obra) (autor ?pintor) (esta_en ?sala))
     (test (eq (length$ (find-all-instances ((?v Obra)) (< (frecuencia ?v ?cjt_obras) (frecuencia ?instancia_obra ?cjt_obras)))) 0))
     =>
-    (printout t "Se inserta la obra " ?obra " de " ?pintor " ubicada en " ?sala " por la regla_rellenar_random" crlf)
+    ;(printout t "Se inserta la obra " ?obra " de " ?pintor " ubicada en " ?sala " por la regla_rellenar_random" crlf)
     (retract ?obras_recorrido)
     (assert (obras_recorrido ?cjt_obras ?instancia_obra))
     (retract ?obras_por_dia_a_rellenar)
@@ -532,8 +532,8 @@
 (defrule moduloD::cambiar_a_moduloImprimir
     (not (obras_por_dia_a_rellenar $? ?o&:(> ?o 0) $?))
     =>
-    (printout t "Facts: " crlf)
-    (facts)
-    (printout t "Cambio a moduloImprimir" crlf)
+    ;(printout t "Facts: " crlf)
+    ;(facts)
+    ;(printout t "Cambio a moduloImprimir" crlf)
     (focus moduloImprimir)
 )

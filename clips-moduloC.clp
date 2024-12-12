@@ -48,7 +48,6 @@
     ; Iterate over the list of interests
     (foreach ?interes ?lista_intereses
         (bind ?interesvalue (fact-slot-value (fact-index ?interes) implied))
-        ;(printout t ?interesvalue crlf)
         (if (eq (nth$ 1 ?interesvalue) epoca) then (bind ?trobat_epoca TRUE))
         (if (eq (nth$ 1 ?interesvalue) pintor) then (bind ?trobat_autor TRUE))
         (if (eq (nth$ 1 ?interesvalue) movimiento) then (bind ?trobat_movimiento TRUE))
@@ -66,8 +65,8 @@
 (defrule moduloC::cambiar_moduloD
      (declare (salience -10))
      =>
-     (printout t "Facts: " crlf)
-     (facts)
-     (printout t "Cambio a moduloD" crlf)
+     ;(printout t "Facts: " crlf)
+     ;(facts)
+     ;(printout t "Cambio a moduloD" crlf)
      (focus moduloD)
 )

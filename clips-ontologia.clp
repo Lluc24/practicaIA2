@@ -153,9 +153,6 @@
     (is-a USER)
     (role concrete)
     (pattern-match reactive)
-    (multislot preferencia
-        (type INSTANCE)
-        (create-accessor read-write))
     ;;; Conocimiento es un valor natural del 0 al 10 (ambos incluidos)
     (multislot conocimiento
         (type INTEGER)

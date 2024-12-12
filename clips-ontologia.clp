@@ -68,28 +68,28 @@
     (slot esta_en
         (type INSTANCE)
         (create-accessor read-write))
-    (multislot pertenece_a_la_epoca
+    (slot pertenece_a_la_epoca
         (type INSTANCE)
         (create-accessor read-write))
-    (multislot pertenece_al_movimiento
+    (slot pertenece_al_movimiento
         (type INSTANCE)
         (create-accessor read-write))
-    (multislot tiene_tematica
+    (slot tiene_tematica
         (type INSTANCE)
         (create-accessor read-write))
     ;;; Complejidad es un valor del 0 al 10 (ambos incluidos)
-    (multislot complejidad
+    (slot complejidad
         (type INTEGER)
         (create-accessor read-write))
     ;;; Dimensiones de la obra en metros cuadrados
-    (multislot dimensiones
+    (slot dimensiones
         (type FLOAT)
         (create-accessor read-write))
-    (multislot nombre
+    (slot nombre
         (type STRING)
         (create-accessor read-write))
     ;;; Popularidad es un valor natural entre 0 y 10 (ambos incluidos)
-    (multislot popularidad
+    (slot popularidad
         (type INTEGER)
         (create-accessor read-write))
 )
@@ -175,83 +175,83 @@
 )
 
 (definstances instances
-    ([R7UjkIiR2fjXzeKkji1MY1l] of Estilo
-         (nombre  "Gotico_Internacional")
+    ([Gotico_Internacional] of Estilo
+         (nombre  "Gotico Internacional")
     )
 
-    ([R85Rk6FdCCaASkyXGpyFqvn] of Tematica
+    ([Retrato] of Tematica
          (nombre  "Retrato")
     )
 
-    ([R8gA8NA0YPE7ramA7D0Rwq8] of Tematica
+    ([Costumbrista] of Tematica
          (nombre  "Costumbrista")
     )
 
-    ([R8lFZHymIxM5rOaG8Ci4Rwn] of Tematica
+    ([Historico] of Tematica
          (nombre  "Historico")
     )
 
-    ([R9joZjx9kj4bLs6toW0un0g] of Epoca
+    ([Renacimiento_Temprano] of Epoca
          (nombre  "Renacimiento Temprano")
     )
 
-    ([R9q9fACeutf0vF2kfsAK1ft] of Corriente
+    ([Romanticismo] of Corriente
          (nombre  "Romanticismo")
     )
 
-    ([RB3VEWwuYiGjeM8bBe194BC] of Tematica
+    ([Alegorico] of Tematica
          (nombre  "Alegorico")
     )
 
-    ([RBi2uKSxGI0CUpbK7kAnoEd] of Escuela
+    ([Gotico_Flamenco] of Escuela
          (nombre  "Gotico Flamenco")
     )
 
-    ([RC811Wq4dQab2ER4WaZa2oa] of Epoca
+    ([Siglo_XIX] of Epoca
          (nombre  "Siglo XIX")
     )
 
-    ([RCksGlG0aLSAXykyybz6uQi] of Epoca
+    ([Siglo_XVII] of Epoca
          (nombre  "Siglo XVII")
     )
 
-    ([RCv3q6THjYQY8gaZsl59mvg] of Tematica
+    ([Mitologico] of Tematica
          (nombre  "Mitologico")
     )
 
-    ([RD24wXCtqjw5iFzancr678Z] of Estilo
+    ([Neoclasicismo] of Estilo
          (nombre  "Neoclasicismo")
     )
 
-    ([RDAKxnr3hZIhfWOzAWP35i9] of Tematica
+    ([Naturaleza_muerta] of Tematica
          (nombre  "Naturaleza muerta")
     )
 
-    ([RDEoeCd6SEk4O5qed4T1kXm] of Epoca
+    ([Siglo_XVIII-XIX] of Epoca
          (nombre  "Siglo XVIII-XIX")
     )
 
-    ([RDNTaEdqVqd5unwzX6tb7D8] of Periodo_Pictorico
+    ([Renacimiento] of Periodo_Pictorico
          (nombre  "Renacimiento")
     )
 
-    ([RDSAfAtiCShSR64jVRR7L4n] of Tematica
+    ([Paisaje] of Tematica
          (nombre  "Paisaje")
     )
 
-    ([RhFmd2RPdlzxenDJVG2e8p] of Epoca
+    ([Siglo_de_Oro_Espanol] of Epoca
          (nombre  "Siglo de Oro Espanol")
     )
 
-    ([RndcuGUYjxB4N8SGQclSS1] of Estilo
+    ([Barroco] of Estilo
          (nombre  "Barroco")
     )
 
-    ([RtuKZIHfmkIcy0raSXYPsI] of Tematica
+    ([Religiosa] of Tematica
          (nombre  "Religiosa")
     )
 
-    ([Rx9viDsujfLuCpTjfYZhKT] of Tematica
+    ([Biblico] of Tematica
          (nombre  "Biblico")
     )
 
@@ -853,7 +853,7 @@
          (tiene_tematica  [Religiosa])
          (complejidad  7)
          (nombre  "La Magdalena penitente")
-         (popularidad  1.1 7)
+         (popularidad  7)
     )
 
     ([La_Maja_Desnuda] of Obra

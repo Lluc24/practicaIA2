@@ -58,7 +58,7 @@
      (printout t "[" ?i "] " (nth$ 1(send ?v get-nombre)) crlf)
      (bind ?i (+ ?i 1))
      )
-     (printout t "[" ?i "] No añadir la preferencia" crlf)
+     (printout t "[" ?i "] No anadir la preferencia" crlf)
      (bind ?elegido (read))
      (if(neq ?i ?elegido) then 
      (bind ?ret (nth$ ?elegido ?instancias))

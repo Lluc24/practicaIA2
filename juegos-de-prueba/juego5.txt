@@ -1,0 +1,65 @@
+Que tipo de preferencia quiere anadir?
+[1] Preferencia por algun autor
+[2] Preferencia por alguna tematica
+[3] Preferencia por algun movimiento
+[4] Preferencia por alguna epoca
+[5] No hay mas preferencias
+4
+[1] Renacimiento Temprano
+[2] Siglo XIX
+[3] Siglo XVII
+[4] Siglo XVIII-XIX
+[5] Siglo de Oro Espanol
+[6] No anadir la preferencia
+2
+Que tipo de preferencia quiere anadir?
+[1] Preferencia por algun autor
+[2] Preferencia por alguna tematica
+[3] Preferencia por algun movimiento
+[4] Preferencia por alguna epoca
+[5] No hay mas preferencias
+4
+[1] Renacimiento Temprano
+[2] Siglo XIX
+[3] Siglo XVII
+[4] Siglo XVIII-XIX
+[5] Siglo de Oro Espanol
+[6] No anadir la preferencia
+4
+Que tipo de preferencia quiere anadir?
+[1] Preferencia por algun autor
+[2] Preferencia por alguna tematica
+[3] Preferencia por algun movimiento
+[4] Preferencia por alguna epoca
+[5] No hay mas preferencias
+5
+En cuantos dias desea visitar el museo? El valor debe estar entre 1 y 3 (ambos incluidos)
+1
+Cuantas horas quiere que dure una visita de un dia? El valor debe estar entre 1 y 8 (ambos incluidos)
+4
+Cuantas personas sois? El valor debe estar entre 1 y 100 (ambos incluidos)
+2
+Hay ninos? [Si/No]
+No
+Hay jubilados? [Si/No]
+No
+Que grado de conocimiento en arte tiene? El valor debe estar entre 0 y 10 (ambos incluidos)
+4
+#####################################################
+El recorrido de una visita diaria esta compuesto por salas. Para cada sala, se indica los cuadros a ver
+Dia 1
+En la [Sala10] ver:
+La obra [Saturno devorando a su hijo] de [Francisco_de_Goya]
+La obra [El 3 de mayo de 1808] de [Francisco_de_Goya]
+La obra [El Perro] de [Francisco_de_Goya]
+La obra [Santa Isabel de Portugal] de [Francisco_de_Zurbaran]
+La obra [Retrato de Carlos III cazador] de [Francisco_de_Goya]
+La obra [Los Fusilamientos de Torrijos] de [Antonio_Gisbert]
+La obra [Cristo recogiendo sus vestiduras] de [El_Greco]
+En la [Sala9] ver:
+La obra [San Juan Bautista en el desierto] de [Caravaggio]
+La obra [San Jeronimo] de [Jose_de_Ribera]
+La obra [San Andres] de [Jose_de_Ribera]
+La obra [Retrato de Maria Luisa] de [Claudio_Coello]
+La obra [Retrato de Isabel de Borbon] de [Claudio_Coello]
+#####################################################

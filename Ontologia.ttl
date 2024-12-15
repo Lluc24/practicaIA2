@@ -23,8 +23,7 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#contigua_a
 :contigua_a rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty ;
-            rdf:type owl:FunctionalProperty ,
-                     owl:ReflexiveProperty ;
+            rdf:type owl:ReflexiveProperty ;
             rdfs:domain :Sala ;
             rdfs:range :Sala .
 
@@ -37,16 +36,11 @@
          rdfs:range :Sala .
 
 
-###  http://www.semanticweb.org/adri/ontologies/2024/10/#pertenece_a
-:pertenece_a rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf owl:topObjectProperty ;
-             rdfs:domain :Obra ,
-                         :Pintor ;
-             rdfs:range :Corriente ,
-                        :Epoca ,
-                        :Escuela ,
-                        :Estilo ,
-                        :Periodo_Pictorico .
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#nacionalidad
+:nacionalidad rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain :Pintor ;
+              rdfs:range :Pais .
 
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#pertenece_a_la_epoca
@@ -76,13 +70,6 @@
                         :Movimiento .
 
 
-###  http://www.semanticweb.org/adri/ontologies/2024/10/#tiene
-:tiene rdf:type owl:ObjectProperty ;
-       rdfs:subPropertyOf owl:topObjectProperty ;
-       rdfs:domain :Obra ;
-       rdfs:range :Tematica .
-
-
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#tiene_tematica
 :tiene_tematica rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf owl:topObjectProperty ;
@@ -110,13 +97,6 @@
               rdfs:comment "Conocimiento es un valor natural del 0 al 10 (ambos incluidos)" .
 
 
-###  http://www.semanticweb.org/adri/ontologies/2024/10/#crios_o_jubilados
-:crios_o_jubilados rdf:type owl:DatatypeProperty ;
-                   rdfs:subPropertyOf owl:topDataProperty ;
-                   rdfs:domain :Visita ;
-                   rdfs:range xsd:boolean .
-
-
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#dias
 :dias rdf:type owl:DatatypeProperty ;
       rdfs:subPropertyOf owl:topDataProperty ;
@@ -139,6 +119,12 @@
            rdfs:range xsd:string .
 
 
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#grupo
+:grupo rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :Visita .
+
+
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#horas
 :horas rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf owl:topDataProperty ;
@@ -146,56 +132,20 @@
        rdfs:range xsd:integer .
 
 
-###  http://www.semanticweb.org/adri/ontologies/2024/10/#horas_dia
-:horas_dia rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf owl:topDataProperty ;
-           rdfs:domain :Visita ;
-           rdfs:range xsd:float .
-
-
-###  http://www.semanticweb.org/adri/ontologies/2024/10/#identificador
-:identificador rdf:type owl:DatatypeProperty ;
-               rdfs:subPropertyOf owl:topDataProperty ;
-               rdfs:domain :Visita ;
-               rdfs:range xsd:string .
-
-
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#nombre
 :nombre rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf owl:topDataProperty ;
-        rdfs:domain :Pais ,
-                    :Corriente ,
+        rdfs:domain :Corriente ,
                     :Epoca ,
                     :Escuela ,
                     :Estilo ,
                     :Obra ,
+                    :Pais ,
                     :Periodo_Pictorico ,
                     :Pintor ,
                     :Sala ,
                     :Tematica ;
         rdfs:range xsd:string .
-
-
-###  http://www.semanticweb.org/adri/ontologies/2024/10/#num_dias
-:num_dias rdf:type owl:DatatypeProperty ;
-          rdfs:subPropertyOf owl:topDataProperty ;
-          rdfs:domain :Visita ;
-          rdfs:range xsd:integer .
-
-
-###  http://www.semanticweb.org/adri/ontologies/2024/10/#num_obras
-:num_obras rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf owl:topDataProperty ;
-           rdfs:domain :Visita ;
-           rdfs:range xsd:integer .
-
-
-###  http://www.semanticweb.org/adri/ontologies/2024/10/#obras_dia
-:obras_dia rdf:type owl:DatatypeProperty ;
-           rdfs:subPropertyOf owl:topDataProperty ;
-           rdfs:domain :Visita ;
-           rdfs:range xsd:integer ;
-           rdfs:comment "Estimacion del numero de obras que quieren ver en un dia" .
 
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#popularidad
@@ -210,7 +160,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#preferencias
 :preferencias rdf:type owl:DatatypeProperty ;
               rdfs:subPropertyOf owl:topDataProperty ;
-              rdfs:domain :Visita .
+              rdfs:domain :Visita ;
+              rdfs:range xsd:string .
 
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#siglo
@@ -223,10 +174,6 @@
 #################################################################
 #    Classes
 #################################################################
-
-###  http://www.semanticweb.org/adri/ontologies/2024/10/Pais
-:Pais rdf:type owl:Class .
-
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Corriente
 :Corriente rdf:type owl:Class ;
@@ -253,6 +200,10 @@
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Obra
 :Obra rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Pais
+:Pais rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Periodo_Pictorico
@@ -422,30 +373,6 @@
                                                         rdfs:label "Biblico" .
 
 
-###  http://www.semanticweb.org/adri/ontologies/2024/10/Espanya
-:Espanya rdf:type owl:NamedIndividual ,
-                  :Pais ;
-         :nombre "Espanya" .
-
-
-###  http://www.semanticweb.org/adri/ontologies/2024/10/Francia
-:Francia rdf:type owl:NamedIndividual ,
-                  :Pais ;
-         :nombre "Francia" .
-
-
-###  http://www.semanticweb.org/adri/ontologies/2024/10/Holanda
-:Holanda rdf:type owl:NamedIndividual ,
-                  :Pais ;
-         :nombre "Holanda" .
-
-
-###  http://www.semanticweb.org/adri/ontologies/2024/10/Italia
-:Italia rdf:type owl:NamedIndividual ,
-                 :Pais ;
-        :nombre "Italia" .
-
-
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Adoracion_de_los_Reyes_Magos
 :Adoracion_de_los_Reyes_Magos rdf:type owl:NamedIndividual ,
                                        :Obra ;
@@ -460,11 +387,17 @@
                               :popularidad 8 .
 
 
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Alemania
+:Alemania rdf:type owl:NamedIndividual ,
+                   :Pais ;
+          :nombre "Alemania" .
+
+
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Antonello
 :Antonello rdf:type owl:NamedIndividual ,
                     :Pintor ;
+           :nacionalidad :Italia ;
            :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
-           :geografia "Sicilia" ;
            :nombre "Antonello" ;
            :popularidad 6 .
 
@@ -472,8 +405,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Antonio_Gisbert
 :Antonio_Gisbert rdf:type owl:NamedIndividual ,
                           :Pintor ;
+                 :nacionalidad :Espana ;
                  :pertenece_a_la_epoca <http://webprotege.stanford.edu/RC811Wq4dQab2ER4WaZa2oa> ;
-                 :geografia "Valencia" ;
                  :nombre "Antonio Gisbert" ;
                  :popularidad 7 .
 
@@ -509,10 +442,16 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Bartolome_Esteban_Murillo
 :Bartolome_Esteban_Murillo rdf:type owl:NamedIndividual ,
                                     :Pintor ;
+                           :nacionalidad :Espana ;
                            :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
-                           :geografia "Andalucia" ;
                            :nombre "Bartolome Esteban Murillo" ;
                            :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Belgica
+:Belgica rdf:type owl:NamedIndividual ,
+                  :Pais ;
+         :nombre "Belgica" .
 
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Bodegon_con_Cacharros
@@ -546,8 +485,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Caravaggio
 :Caravaggio rdf:type owl:NamedIndividual ,
                      :Pintor ;
+            :nacionalidad :Italia ;
             :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
-            :geografia "Italia" ;
             :nombre "Caravaggio" ;
             :popularidad 8 .
 
@@ -569,8 +508,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Claudio_Coello
 :Claudio_Coello rdf:type owl:NamedIndividual ,
                          :Pintor ;
+                :nacionalidad :Espana ;
                 :pertenece_a_la_epoca <http://webprotege.stanford.edu/RCksGlG0aLSAXykyybz6uQi> ;
-                :geografia "Madrid" ;
                 :nombre "Claudio Coello" ;
                 :popularidad 7 .
 
@@ -578,8 +517,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Claudio_de_Lorena
 :Claudio_de_Lorena rdf:type owl:NamedIndividual ,
                             :Pintor ;
+                   :nacionalidad :Francia ;
                    :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
-                   :geografia "Francia" ;
                    :nombre "Claudio de Lorena" ;
                    :popularidad 7 .
 
@@ -685,8 +624,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Diego_Velazquez
 :Diego_Velazquez rdf:type owl:NamedIndividual ,
                           :Pintor ;
+                 :nacionalidad :Espana ;
                  :pertenece_a_la_epoca <http://webprotege.stanford.edu/RhFmd2RPdlzxenDJVG2e8p> ;
-                 :geografia "Andalucia" ;
                  :nombre "Diego Velazquez" ;
                  :popularidad 10 .
 
@@ -708,8 +647,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Bosco
 :El_Bosco rdf:type owl:NamedIndividual ,
                    :Pintor ;
+          :nacionalidad :Paises_Bajos ;
           :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
-          :geografia "Paises Bajos" ;
           :nombre "El Bosco" ;
           :popularidad 10 .
 
@@ -815,8 +754,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Greco
 :El_Greco rdf:type owl:NamedIndividual ,
                    :Pintor ;
+          :nacionalidad :Espana ;
           :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
-          :geografia "Castilla-La Mancha" ;
           :nombre "El Greco" ;
           :popularidad 8 .
 
@@ -989,20 +928,41 @@
                          :popularidad 9 .
 
 
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Espana
+:Espana rdf:type owl:NamedIndividual ,
+                 :Pais ;
+        :nombre "Espana" .
+
+
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Fra_Angelico
 :Fra_Angelico rdf:type owl:NamedIndividual ,
                        :Pintor ;
+              :nacionalidad :Italia ;
               :pertenece_a_la_epoca <http://webprotege.stanford.edu/R9joZjx9kj4bLs6toW0un0g> ;
-              :geografia "Italia" ;
               :nombre "Fra Angelico" ;
               :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Francia
+:Francia rdf:type owl:NamedIndividual ,
+                  :Pais ;
+         :nombre "Francia" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Francisco_Bayeu_y_Subias
+:Francisco_Bayeu_y_Subias rdf:type owl:NamedIndividual ,
+                                   :Pintor ;
+                          :nacionalidad :Espana ;
+                          :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDEoeCd6SEk4O5qed4T1kXm> ;
+                          :nombre "Francisco Bayeu y Subias" ;
+                          :popularidad 4 .
 
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Francisco_de_Goya
 :Francisco_de_Goya rdf:type owl:NamedIndividual ,
                             :Pintor ;
+                   :nacionalidad :Espana ;
                    :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDEoeCd6SEk4O5qed4T1kXm> ;
-                   :geografia "Aragon" ;
                    :nombre "Francisco de Goya" ;
                    :popularidad 9 .
 
@@ -1010,17 +970,29 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Francisco_de_Zurbaran
 :Francisco_de_Zurbaran rdf:type owl:NamedIndividual ,
                                 :Pintor ;
+                       :nacionalidad :Espana ;
                        :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
-                       :geografia "Extremadura" ;
                        :nombre "Francisco de Zurbaran" ;
                        :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Holanda
+:Holanda rdf:type owl:NamedIndividual ,
+                  :Pais ;
+         :nombre "Holanda" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Italia
+:Italia rdf:type owl:NamedIndividual ,
+                 :Pais ;
+        :nombre "Italia" .
 
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Jose_de_Ribera
 :Jose_de_Ribera rdf:type owl:NamedIndividual ,
                          :Pintor ;
+                :nacionalidad :Espana ;
                 :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
-                :geografia "Valencia" ;
                 :nombre "Jose de Ribera" ;
                 :popularidad 7 .
 
@@ -1196,6 +1168,7 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Sagrada_Familia
 :La_Sagrada_Familia rdf:type owl:NamedIndividual ,
                              :Obra ;
+                    :autor :Francisco_Bayeu_y_Subias ;
                     :esta_en :Sala4 ;
                     :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
                     :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
@@ -1321,8 +1294,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Leonardo_da_Vinci
 :Leonardo_da_Vinci rdf:type owl:NamedIndividual ,
                             :Pintor ;
+                   :nacionalidad :Italia ;
                    :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
-                   :geografia "Italia" ;
                    :nombre "Leonardo da Vinci" ;
                    :popularidad 10 .
 
@@ -1372,17 +1345,23 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Lucas_Cranach_el_Viejo
 :Lucas_Cranach_el_Viejo rdf:type owl:NamedIndividual ,
                                  :Pintor ;
+                        :nacionalidad :Alemania ;
                         :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
-                        :geografia "Alemania" ;
                         :nombre "Lucas Cranach el Viejo" ;
                         :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Paises_Bajos
+:Paises_Bajos rdf:type owl:NamedIndividual ,
+                       :Pais ;
+              :nombre "Paises Bajos" .
 
 
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Peter_Paul_Rubens
 :Peter_Paul_Rubens rdf:type owl:NamedIndividual ,
                             :Pintor ;
+                   :nacionalidad :Belgica ;
                    :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
-                   :geografia "Belgica" ;
                    :nombre "Peter Paul Rubens" ;
                    :popularidad 8 .
 
@@ -1390,8 +1369,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Pieter_Bruegel_el_Viejo
 :Pieter_Bruegel_el_Viejo rdf:type owl:NamedIndividual ,
                                   :Pintor ;
+                         :nacionalidad :Paises_Bajos ;
                          :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
-                         :geografia "Paises Bajos" ;
                          :nombre "Pieter Brugel el Viejo" ;
                          :popularidad 9 .
 
@@ -1399,8 +1378,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Rafael_Sanzio
 :Rafael_Sanzio rdf:type owl:NamedIndividual ,
                         :Pintor ;
+               :nacionalidad :Italia ;
                :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
-               :geografia "Italia" ;
                :nombre "Rafael Sanzio" ;
                :popularidad 9 .
 
@@ -1534,8 +1513,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Rogier_van_der_Weyden
 :Rogier_van_der_Weyden rdf:type owl:NamedIndividual ,
                                 :Pintor ;
+                       :nacionalidad :Paises_Bajos ;
                        :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
-                       :geografia "Paises Bajos" ;
                        :nombre "Rogier van der Weyden" ;
                        :popularidad 8 .
 
@@ -1659,8 +1638,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Sandro_Botticelli
 :Sandro_Botticelli rdf:type owl:NamedIndividual ,
                             :Pintor ;
+                   :nacionalidad :Italia ;
                    :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
-                   :geografia "Italia" ;
                    :nombre "Sandro Botticelli" ;
                    :popularidad 8 .
 
@@ -1696,8 +1675,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Tintoretto
 :Tintoretto rdf:type owl:NamedIndividual ,
                      :Pintor ;
+            :nacionalidad :Italia ;
             :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
-            :geografia "Italia" ;
             :nombre "Tintoretto" ;
             :popularidad 8 .
 
@@ -1705,8 +1684,8 @@
 ###  http://www.semanticweb.org/adri/ontologies/2024/10/#Tiziano
 :Tiziano rdf:type owl:NamedIndividual ,
                   :Pintor ;
+         :nacionalidad :Italia ;
          :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
-         :geografia "Italia" ;
          :nombre "Tiziano" ;
          :popularidad 8 .
 

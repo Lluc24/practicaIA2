@@ -1,0 +1,140 @@
+Que tipo de preferencia quiere anadir?
+[1] Preferencia por algun autor
+[2] Preferencia por alguna tematica
+[3] Preferencia por algun movimiento
+[4] Preferencia por alguna epoca
+[5] No hay mas preferencias
+1
+[1] Antonello
+[2] Antonio Gisbert
+[3] Bartolome Esteban Murillo
+[4] Caravaggio
+[5] Claudio Coello
+[6] Claudio de Lorena
+[7] Diego Velazquez
+[8] El Bosco
+[9] El Greco
+[10] Fra Angelico
+[11] Francisco Bayeu y Subias
+[12] Francisco de Goya
+[13] Francisco de Zurbaran
+[14] Jose de Ribera
+[15] Leonardo da Vinci
+[16] Lucas Cranach el Viejo
+[17] Peter Paul Rubens
+[18] Pieter Brugel el Viejo
+[19] Rafael Sanzio
+[20] Rogier van der Weyden
+[21] Sandro Botticelli
+[22] Tintoretto
+[23] Tiziano
+[24] No anadir la preferencia
+7
+Que tipo de preferencia quiere anadir?
+[1] Preferencia por algun autor
+[2] Preferencia por alguna tematica
+[3] Preferencia por algun movimiento
+[4] Preferencia por alguna epoca
+[5] No hay mas preferencias
+1
+[1] Antonello
+[2] Antonio Gisbert
+[3] Bartolome Esteban Murillo
+[4] Caravaggio
+[5] Claudio Coello
+[6] Claudio de Lorena
+[7] Diego Velazquez
+[8] El Bosco
+[9] El Greco
+[10] Fra Angelico
+[11] Francisco Bayeu y Subias
+[12] Francisco de Goya
+[13] Francisco de Zurbaran
+[14] Jose de Ribera
+[15] Leonardo da Vinci
+[16] Lucas Cranach el Viejo
+[17] Peter Paul Rubens
+[18] Pieter Brugel el Viejo
+[19] Rafael Sanzio
+[20] Rogier van der Weyden
+[21] Sandro Botticelli
+[22] Tintoretto
+[23] Tiziano
+[24] No anadir la preferencia
+23
+Que tipo de preferencia quiere anadir?
+[1] Preferencia por algun autor
+[2] Preferencia por alguna tematica
+[3] Preferencia por algun movimiento
+[4] Preferencia por alguna epoca
+[5] No hay mas preferencias
+2
+[1] Retrato
+[2] Costumbrista
+[3] Historico
+[4] Alegorico
+[5] Mitologico
+[6] Naturaleza muerta
+[7] Paisaje
+[8] Religiosa
+[9] Biblico
+[10] No anadir la preferencia
+1
+Que tipo de preferencia quiere anadir?
+[1] Preferencia por algun autor
+[2] Preferencia por alguna tematica
+[3] Preferencia por algun movimiento
+[4] Preferencia por alguna epoca
+[5] No hay mas preferencias
+5
+En cuantos dias desea visitar el museo? El valor debe estar entre 1 y 3 (ambos incluidos)
+2
+Cuantas horas quiere que dure una visita de un dia? El valor debe estar entre 1 y 8 (ambos incluidos)
+7
+Cuantas personas sois? El valor debe estar entre 1 y 100 (ambos incluidos)
+2
+Hay ninos? [Si/No]
+No
+Hay jubilados? [Si/No]
+No
+Que grado de conocimiento en arte tiene? El valor debe estar entre 0 y 10 (ambos incluidos)
+9
+#####################################################
+El recorrido de una visita diaria esta compuesto por salas. Para cada sala, se indica los cuadros a ver
+Dia 1
+En la [Sala8] ver:
+La obra [Las Meninas] de [Diego_Velazquez]
+En la [Sala3] ver:
+La obra [Retrato encuestre del Duque de Lerma] de [Tiziano]
+En la [Sala1] ver:
+La obra [Carlos V en la batalla de Muhlberg] de [Tiziano]
+La obra [El Jardin de las Delicias panel izquierdo] de [El_Bosco]
+La obra [El Jardin de las Delicias panel derecho] de [El_Bosco]
+La obra [El Jardin de las Delicias] de [El_Bosco]
+La obra [El Expolio] de [El_Greco]
+La obra [El Descendimiento] de [Rogier_van_der_Weyden]
+La obra [El Cardenal] de [Rafael_Sanzio]
+La obra [El Caballero de la Mano en el Pecho] de [El_Greco]
+La obra [Diana y Calisto] de [Tiziano]
+En la [Sala5] ver:
+La obra [Cristo abrazando a la cruz] de [Jose_de_Ribera]
+La obra [Cristo Muerto Sostenido por un Angel] de [Antonello]
+La obra [Conde Duque de Olivares a Caballo] de [Diego_Velazquez]
+Dia 2
+En la [Sala5] ver:
+La obra [Bodegon con cesto de frutas] de [Caravaggio]
+La obra [Bodegon con Cacharros] de [Francisco_de_Zurbaran]
+La obra [Autorretrato] de [Diego_Velazquez]
+La obra [Apolo en la Fragua de Vulcano] de [Diego_Velazquez]
+La obra [Adoracion de los Reyes Magos] de [Peter_Paul_Rubens]
+En la [Sala9] ver:
+La obra [San Juan Bautista en el desierto] de [Caravaggio]
+La obra [San Jeronimo] de [Jose_de_Ribera]
+La obra [San Andres] de [Jose_de_Ribera]
+La obra [Retrato de Maria Luisa] de [Claudio_Coello]
+La obra [Retrato de Isabel de Borbon] de [Claudio_Coello]
+La obra [Retrato de Inocencio X] de [Diego_Velazquez]
+La obra [Retrato de Felipe IV] de [Diego_Velazquez]
+En la [Sala8] ver:
+La obra [Retrato de Felipe III a caballo] de [Diego_Velazquez]
+La obra [Los Musicos] de [Diego_Velazquez]

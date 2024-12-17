@@ -1,0 +1,1745 @@
+@prefix : <http://www.semanticweb.org/adri/ontologies/2024/10/#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/adri/ontologies/2024/10/#> .
+
+<http://www.semanticweb.org/adri/ontologies/2024/10/> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#autor
+:autor rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf owl:topObjectProperty ;
+       rdf:type owl:FunctionalProperty ;
+       rdfs:domain :Obra ;
+       rdfs:range :Pintor .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#contigua_a
+:contigua_a rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:ReflexiveProperty ;
+            rdfs:domain :Sala ;
+            rdfs:range :Sala .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#esta_en
+:esta_en rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf owl:topObjectProperty ;
+         rdf:type owl:FunctionalProperty ;
+         rdfs:domain :Obra ;
+         rdfs:range :Sala .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#nacionalidad
+:nacionalidad rdf:type owl:ObjectProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain :Pintor ;
+              rdfs:range :Pais .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#pertenece_a_la_epoca
+:pertenece_a_la_epoca rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf owl:topObjectProperty ;
+                      rdfs:domain :Obra ,
+                                  :Pintor ;
+                      rdfs:range :Epoca .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#pertenece_al_movimiento
+:pertenece_al_movimiento rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf owl:topObjectProperty ;
+                         rdfs:domain :Obra ,
+                                     :Pintor ;
+                         rdfs:range :Corriente ,
+                                    :Escuela ,
+                                    :Estilo ,
+                                    :Periodo_Pictorico .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#preferencia
+:preferencia rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain :Visita ;
+             rdfs:range :Epoca ,
+                        :Movimiento .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#tiene_tematica
+:tiene_tematica rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :Obra ;
+                rdfs:range :Tematica .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#complejidad
+:complejidad rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :Obra ;
+             rdfs:range xsd:integer ;
+             rdfs:comment "Complejidad es un valor del 0 al 10 (ambos incluidos)" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#conocimiento
+:conocimiento rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :Visita ;
+              rdfs:range xsd:integer ;
+              rdfs:comment "Conocimiento es un valor natural del 0 al 10 (ambos incluidos)" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#dias
+:dias rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf owl:topDataProperty ;
+      rdfs:domain :Visita ;
+      rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#dimensiones
+:dimensiones rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :Obra ;
+             rdfs:range xsd:float ;
+             rdfs:comment "Dimensiones de la obra en metros cuadrados" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#geografia
+:geografia rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :Pintor ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#grupo
+:grupo rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :Visita .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#horas
+:horas rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :Visita ;
+       rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#nombre
+:nombre rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf owl:topDataProperty ;
+        rdfs:domain :Corriente ,
+                    :Epoca ,
+                    :Escuela ,
+                    :Estilo ,
+                    :Obra ,
+                    :Pais ,
+                    :Periodo_Pictorico ,
+                    :Pintor ,
+                    :Sala ,
+                    :Tematica ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#popularidad
+:popularidad rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :Obra ,
+                         :Pintor ;
+             rdfs:range xsd:integer ;
+             rdfs:comment "Popularidad es un valor natural entre 0 y 10 (ambos incluidos)" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#preferencias
+:preferencias rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :Visita ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#siglo
+:siglo rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :Epoca ;
+       rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Corriente
+:Corriente rdf:type owl:Class ;
+           rdfs:subClassOf :Movimiento .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Epoca
+:Epoca rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Escuela
+:Escuela rdf:type owl:Class ;
+         rdfs:subClassOf :Movimiento .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Estilo
+:Estilo rdf:type owl:Class ;
+        rdfs:subClassOf :Movimiento .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Movimiento
+:Movimiento rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Obra
+:Obra rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Pais
+:Pais rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Periodo_Pictorico
+:Periodo_Pictorico rdf:type owl:Class ;
+                   rdfs:subClassOf :Movimiento .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Pintor
+:Pintor rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Sala
+:Sala rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Tematica
+:Tematica rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Visita
+:Visita rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://webprotege.stanford.edu/R7UjkIiR2fjXzeKkji1MY1l
+<http://webprotege.stanford.edu/R7UjkIiR2fjXzeKkji1MY1l> rdf:type owl:NamedIndividual ,
+                                                                  :Estilo ;
+                                                         :nombre "Gotico_Internacional" ;
+                                                         rdfs:label "Gotico_Internacional" .
+
+
+###  http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn
+<http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> rdf:type owl:NamedIndividual ,
+                                                                  :Tematica ;
+                                                         :nombre "Retrato" ;
+                                                         rdfs:label "Retrato" .
+
+
+###  http://webprotege.stanford.edu/R8gA8NA0YPE7ramA7D0Rwq8
+<http://webprotege.stanford.edu/R8gA8NA0YPE7ramA7D0Rwq8> rdf:type owl:NamedIndividual ,
+                                                                  :Tematica ;
+                                                         :nombre "Costumbrista" ;
+                                                         rdfs:label "Costumbrista" .
+
+
+###  http://webprotege.stanford.edu/R8lFZHymIxM5rOaG8Ci4Rwn
+<http://webprotege.stanford.edu/R8lFZHymIxM5rOaG8Ci4Rwn> rdf:type owl:NamedIndividual ,
+                                                                  :Tematica ;
+                                                         :nombre "Historico" ;
+                                                         rdfs:label "Historico" .
+
+
+###  http://webprotege.stanford.edu/R9joZjx9kj4bLs6toW0un0g
+<http://webprotege.stanford.edu/R9joZjx9kj4bLs6toW0un0g> rdf:type owl:NamedIndividual ,
+                                                                  :Epoca ;
+                                                         :nombre "Renacimiento Temprano" ;
+                                                         rdfs:label "Renacimiento_temprano" .
+
+
+###  http://webprotege.stanford.edu/R9q9fACeutf0vF2kfsAK1ft
+<http://webprotege.stanford.edu/R9q9fACeutf0vF2kfsAK1ft> rdf:type owl:NamedIndividual ,
+                                                                  :Corriente ;
+                                                         :nombre "Romanticismo" ;
+                                                         rdfs:label "Romanticismo" .
+
+
+###  http://webprotege.stanford.edu/RB3VEWwuYiGjeM8bBe194BC
+<http://webprotege.stanford.edu/RB3VEWwuYiGjeM8bBe194BC> rdf:type owl:NamedIndividual ,
+                                                                  :Tematica ;
+                                                         :nombre "Alegorico" ;
+                                                         rdfs:label "Alegorico" .
+
+
+###  http://webprotege.stanford.edu/RBi2uKSxGI0CUpbK7kAnoEd
+<http://webprotege.stanford.edu/RBi2uKSxGI0CUpbK7kAnoEd> rdf:type owl:NamedIndividual ,
+                                                                  :Escuela ;
+                                                         :nombre "Gotico Flamenco" ;
+                                                         rdfs:label "Gotico_Flamenco" .
+
+
+###  http://webprotege.stanford.edu/RC811Wq4dQab2ER4WaZa2oa
+<http://webprotege.stanford.edu/RC811Wq4dQab2ER4WaZa2oa> rdf:type owl:NamedIndividual ,
+                                                                  :Epoca ;
+                                                         :nombre "Siglo XIX" ;
+                                                         rdfs:label "Siglo_XIX" .
+
+
+###  http://webprotege.stanford.edu/RCksGlG0aLSAXykyybz6uQi
+<http://webprotege.stanford.edu/RCksGlG0aLSAXykyybz6uQi> rdf:type owl:NamedIndividual ,
+                                                                  :Epoca ;
+                                                         :nombre "Siglo XVII" ;
+                                                         rdfs:label "Siglo_XVII" .
+
+
+###  http://webprotege.stanford.edu/RCv3q6THjYQY8gaZsl59mvg
+<http://webprotege.stanford.edu/RCv3q6THjYQY8gaZsl59mvg> rdf:type owl:NamedIndividual ,
+                                                                  :Tematica ;
+                                                         :nombre "Mitologico" ;
+                                                         rdfs:label "Mitologico" .
+
+
+###  http://webprotege.stanford.edu/RD24wXCtqjw5iFzancr678Z
+<http://webprotege.stanford.edu/RD24wXCtqjw5iFzancr678Z> rdf:type owl:NamedIndividual ,
+                                                                  :Estilo ;
+                                                         :nombre "Neoclasicismo" ;
+                                                         rdfs:label "Neoclasicismo" .
+
+
+###  http://webprotege.stanford.edu/RDAKxnr3hZIhfWOzAWP35i9
+<http://webprotege.stanford.edu/RDAKxnr3hZIhfWOzAWP35i9> rdf:type owl:NamedIndividual ,
+                                                                  :Tematica ;
+                                                         :nombre "Naturaleza muerta" ;
+                                                         rdfs:label "Naturaleza_muerta" .
+
+
+###  http://webprotege.stanford.edu/RDEoeCd6SEk4O5qed4T1kXm
+<http://webprotege.stanford.edu/RDEoeCd6SEk4O5qed4T1kXm> rdf:type owl:NamedIndividual ,
+                                                                  :Epoca ;
+                                                         :nombre "Siglo XVIII-XIX" ;
+                                                         rdfs:label "Siglo_XVIII-XIX" .
+
+
+###  http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8
+<http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> rdf:type owl:NamedIndividual ,
+                                                                  :Epoca ,
+                                                                  :Periodo_Pictorico ;
+                                                         :nombre "Renacimiento" ;
+                                                         rdfs:label "Renacimiento" .
+
+
+###  http://webprotege.stanford.edu/RDSAfAtiCShSR64jVRR7L4n
+<http://webprotege.stanford.edu/RDSAfAtiCShSR64jVRR7L4n> rdf:type owl:NamedIndividual ,
+                                                                  :Tematica ;
+                                                         :nombre "Paisaje" ;
+                                                         rdfs:label "Paisaje" .
+
+
+###  http://webprotege.stanford.edu/RhFmd2RPdlzxenDJVG2e8p
+<http://webprotege.stanford.edu/RhFmd2RPdlzxenDJVG2e8p> rdf:type owl:NamedIndividual ,
+                                                                 :Epoca ;
+                                                        :nombre "Siglo de Oro Espanol" ;
+                                                        rdfs:label "Siglo_de_Oro_Espanol" .
+
+
+###  http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1
+<http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> rdf:type owl:NamedIndividual ,
+                                                                 :Epoca ,
+                                                                 :Estilo ;
+                                                        :nombre "Barroco" ;
+                                                        rdfs:label "Barroco" .
+
+
+###  http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI
+<http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> rdf:type owl:NamedIndividual ,
+                                                                 :Tematica ;
+                                                        :nombre "Religiosa" ;
+                                                        rdfs:label "Religiosa" .
+
+
+###  http://webprotege.stanford.edu/Rx9viDsujfLuCpTjfYZhKT
+<http://webprotege.stanford.edu/Rx9viDsujfLuCpTjfYZhKT> rdf:type owl:NamedIndividual ,
+                                                                 :Tematica ;
+                                                        :nombre "Biblico" ;
+                                                        rdfs:label "Biblico" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Adoracion_de_los_Reyes_Magos
+:Adoracion_de_los_Reyes_Magos rdf:type owl:NamedIndividual ,
+                                       :Obra ;
+                              :autor :Peter_Paul_Rubens ;
+                              :esta_en :Sala5 ;
+                              :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                              :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                              :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                              :complejidad 8 ;
+                              :dimensiones 2.96 ;
+                              :nombre "Adoracion de los Reyes Magos" ;
+                              :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Alemania
+:Alemania rdf:type owl:NamedIndividual ,
+                   :Pais ;
+          :nombre "Alemania" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Antonello
+:Antonello rdf:type owl:NamedIndividual ,
+                    :Pintor ;
+           :nacionalidad :Italia ;
+           :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+           :nombre "Antonello" ;
+           :popularidad 6 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Antonio_Gisbert
+:Antonio_Gisbert rdf:type owl:NamedIndividual ,
+                          :Pintor ;
+                 :nacionalidad :Espana ;
+                 :pertenece_a_la_epoca <http://webprotege.stanford.edu/RC811Wq4dQab2ER4WaZa2oa> ;
+                 :nombre "Antonio Gisbert" ;
+                 :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Apolo_en_la_Fragua_de_Vulcano
+:Apolo_en_la_Fragua_de_Vulcano rdf:type owl:NamedIndividual ,
+                                        :Obra ;
+                               :autor :Diego_Velazquez ;
+                               :esta_en :Sala5 ;
+                               :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                               :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                               :tiene_tematica <http://webprotege.stanford.edu/RCv3q6THjYQY8gaZsl59mvg> ;
+                               :complejidad 8 ;
+                               :dimensiones 2.22 ;
+                               :nombre "Apolo en la Fragua de Vulcano" ;
+                               :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Autorretrato
+:Autorretrato rdf:type owl:NamedIndividual ,
+                       :Obra ;
+              :autor :Diego_Velazquez ;
+              :esta_en :Sala5 ;
+              :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+              :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+              :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+              :complejidad 7 ;
+              :dimensiones 0.50 ;
+              :nombre "Autorretrato" ;
+              :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Bartolome_Esteban_Murillo
+:Bartolome_Esteban_Murillo rdf:type owl:NamedIndividual ,
+                                    :Pintor ;
+                           :nacionalidad :Espana ;
+                           :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                           :nombre "Bartolome Esteban Murillo" ;
+                           :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Belgica
+:Belgica rdf:type owl:NamedIndividual ,
+                  :Pais ;
+         :nombre "Belgica" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Bodegon_con_Cacharros
+:Bodegon_con_Cacharros rdf:type owl:NamedIndividual ,
+                                :Obra ;
+                       :autor :Francisco_de_Zurbaran ;
+                       :esta_en :Sala5 ;
+                       :pertenece_a_la_epoca <http://webprotege.stanford.edu/RCksGlG0aLSAXykyybz6uQi> ;
+                       :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                       :tiene_tematica <http://webprotege.stanford.edu/RDAKxnr3hZIhfWOzAWP35i9> ;
+                       :complejidad 7 ;
+                       :dimensiones 1.00 ;
+                       :nombre "Bodegon con Cacharros" ;
+                       :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Bodegon_con_cesto_de_frutas
+:Bodegon_con_cesto_de_frutas rdf:type owl:NamedIndividual ,
+                                      :Obra ;
+                             :autor :Caravaggio ;
+                             :esta_en :Sala5 ;
+                             :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                             :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                             :tiene_tematica <http://webprotege.stanford.edu/RDAKxnr3hZIhfWOzAWP35i9> ;
+                             :complejidad 6 ;
+                             :dimensiones 0.5 ;
+                             :nombre "Bodegon con cesto de frutas" ;
+                             :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Caravaggio
+:Caravaggio rdf:type owl:NamedIndividual ,
+                     :Pintor ;
+            :nacionalidad :Italia ;
+            :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+            :nombre "Caravaggio" ;
+            :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Carlos_V_en_la_batalla_de_Muhlberg
+:Carlos_V_en_la_batalla_de_Muhlberg rdf:type owl:NamedIndividual ,
+                                             :Obra ;
+                                    :autor :Tiziano ;
+                                    :esta_en :Sala1 ;
+                                    :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                                    :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                                    :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                                    :complejidad 9 ;
+                                    :dimensiones 3.32 ;
+                                    :nombre "Carlos V en la batalla de Muhlberg" ;
+                                    :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Claudio_Coello
+:Claudio_Coello rdf:type owl:NamedIndividual ,
+                         :Pintor ;
+                :nacionalidad :Espana ;
+                :pertenece_a_la_epoca <http://webprotege.stanford.edu/RCksGlG0aLSAXykyybz6uQi> ;
+                :nombre "Claudio Coello" ;
+                :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Claudio_de_Lorena
+:Claudio_de_Lorena rdf:type owl:NamedIndividual ,
+                            :Pintor ;
+                   :nacionalidad :Francia ;
+                   :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                   :nombre "Claudio de Lorena" ;
+                   :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Conde-Duque_de_Olivares_a_Caballo
+:Conde-Duque_de_Olivares_a_Caballo rdf:type owl:NamedIndividual ,
+                                            :Obra ;
+                                   :autor :Diego_Velazquez ;
+                                   :esta_en :Sala5 ;
+                                   :pertenece_a_la_epoca <http://webprotege.stanford.edu/RCksGlG0aLSAXykyybz6uQi> ;
+                                   :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                   :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                                   :complejidad 8 ;
+                                   :dimensiones 2.64 ;
+                                   :nombre "Conde Duque de Olivares a Caballo" ;
+                                   :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Cristo_Cruzificado
+:Cristo_Cruzificado rdf:type owl:NamedIndividual ,
+                             :Obra ;
+                    :autor :Diego_Velazquez ;
+                    :esta_en :Sala6 ;
+                    :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                    :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                    :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                    :complejidad 7 ;
+                    :dimensiones 2.10 ;
+                    :nombre "Cristo Cruzificado" ;
+                    :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Cristo_Muerto_Sostenido_por_un_Angel
+:Cristo_Muerto_Sostenido_por_un_Angel rdf:type owl:NamedIndividual ,
+                                               :Obra ;
+                                      :autor :Antonello ;
+                                      :esta_en :Sala5 ;
+                                      :pertenece_a_la_epoca <http://webprotege.stanford.edu/RCksGlG0aLSAXykyybz6uQi> ;
+                                      :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                      :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                                      :complejidad 8 ;
+                                      :dimensiones 1.3 ;
+                                      :nombre "Cristo Muerto Sostenido por un Angel" ;
+                                      :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Cristo_abrazado_a_la_cruz
+:Cristo_abrazado_a_la_cruz rdf:type owl:NamedIndividual ,
+                                    :Obra ;
+                           :autor :Jose_de_Ribera ;
+                           :esta_en :Sala5 ;
+                           :pertenece_a_la_epoca <http://webprotege.stanford.edu/RCksGlG0aLSAXykyybz6uQi> ;
+                           :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                           :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                           :complejidad 7 ;
+                           :dimensiones 1.1 ;
+                           :nombre "Cristo abrazando a la cruz" ;
+                           :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Cristo_recogiendo_sus_vestiduras
+:Cristo_recogiendo_sus_vestiduras rdf:type owl:NamedIndividual ,
+                                           :Obra ;
+                                  :autor :El_Greco ;
+                                  :esta_en :Sala10 ;
+                                  :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDEoeCd6SEk4O5qed4T1kXm> ;
+                                  :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                  :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                                  :complejidad 8 ;
+                                  :dimensiones 2.88 ;
+                                  :nombre "Cristo recogiendo sus vestiduras" ;
+                                  :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#David_Vencedor_de_Goliat
+:David_Vencedor_de_Goliat rdf:type owl:NamedIndividual ,
+                                   :Obra ;
+                          :autor :Jose_de_Ribera ;
+                          :esta_en :Sala6 ;
+                          :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                          :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                          :tiene_tematica <http://webprotege.stanford.edu/Rx9viDsujfLuCpTjfYZhKT> ;
+                          :complejidad 8 ;
+                          :dimensiones 1.40 ;
+                          :nombre "David Vencedor de Goliat" ;
+                          :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Diana_y_Calisto
+:Diana_y_Calisto rdf:type owl:NamedIndividual ,
+                          :Obra ;
+                 :autor :Tiziano ;
+                 :esta_en :Sala1 ;
+                 :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                 :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                 :tiene_tematica <http://webprotege.stanford.edu/RCv3q6THjYQY8gaZsl59mvg> ;
+                 :complejidad 8 ;
+                 :dimensiones 1.3 ;
+                 :nombre "Diana y Calisto" ;
+                 :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Diego_Velazquez
+:Diego_Velazquez rdf:type owl:NamedIndividual ,
+                          :Pintor ;
+                 :nacionalidad :Espana ;
+                 :pertenece_a_la_epoca <http://webprotege.stanford.edu/RhFmd2RPdlzxenDJVG2e8p> ;
+                 :nombre "Diego Velazquez" ;
+                 :popularidad 10 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_3_de_mayo_de_1808
+:El_3_de_mayo_de_1808 rdf:type owl:NamedIndividual ,
+                               :Obra ;
+                      :autor :Francisco_de_Goya ;
+                      :esta_en :Sala10 ;
+                      :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDEoeCd6SEk4O5qed4T1kXm> ;
+                      :pertenece_al_movimiento <http://webprotege.stanford.edu/R9q9fACeutf0vF2kfsAK1ft> ;
+                      :tiene_tematica <http://webprotege.stanford.edu/R8lFZHymIxM5rOaG8Ci4Rwn> ;
+                      :complejidad 8 ;
+                      :dimensiones 2.68 ;
+                      :nombre "El 3 de mayo de 1808" ;
+                      :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Bosco
+:El_Bosco rdf:type owl:NamedIndividual ,
+                   :Pintor ;
+          :nacionalidad :Paises_Bajos ;
+          :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+          :nombre "El Bosco" ;
+          :popularidad 10 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Caballero_Calavera
+:El_Caballero_Calavera rdf:type owl:NamedIndividual ,
+                                :Obra ;
+                       :autor :Jose_de_Ribera ;
+                       :esta_en :Sala6 ;
+                       :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                       :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                       :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                       :complejidad 7 ;
+                       :dimensiones 0.75 ;
+                       :nombre "El Caballero Calavera" ;
+                       :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Caballero_de_la_Mano_en_el_Pecho
+:El_Caballero_de_la_Mano_en_el_Pecho rdf:type owl:NamedIndividual ,
+                                              :Obra ;
+                                     :autor :El_Greco ;
+                                     :esta_en :Sala1 ;
+                                     :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                                     :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                                     :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                                     :complejidad 6 ;
+                                     :dimensiones 0.57 ;
+                                     :nombre "El Caballero de la Mano en el Pecho" ;
+                                     :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Cardenal
+:El_Cardenal rdf:type owl:NamedIndividual ,
+                      :Obra ;
+             :autor :Rafael_Sanzio ;
+             :esta_en :Sala1 ;
+             :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+             :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+             :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+             :complejidad 7 ;
+             :dimensiones 0.55 ;
+             :nombre "El Cardenal" ;
+             :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Cardenal_Infante_Don_Fernando
+:El_Cardenal_Infante_Don_Fernando rdf:type owl:NamedIndividual ,
+                                           :Obra ;
+                                  :autor :Peter_Paul_Rubens ;
+                                  :esta_en :Sala6 ;
+                                  :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                  :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                  :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                                  :complejidad 8 ;
+                                  :dimensiones 1.96 ;
+                                  :nombre "El Cardenal Infante Don Fernando" ;
+                                  :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Descendimiento
+:El_Descendimiento rdf:type owl:NamedIndividual ,
+                            :Obra ;
+                   :autor :Rogier_van_der_Weyden ;
+                   :esta_en :Sala1 ;
+                   :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                   :pertenece_al_movimiento <http://webprotege.stanford.edu/RBi2uKSxGI0CUpbK7kAnoEd> ;
+                   :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                   :complejidad 9 ;
+                   :dimensiones 1.8 ;
+                   :nombre "El Descendimiento" ;
+                   :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Embarco_de_Santa_Paula_Romana
+:El_Embarco_de_Santa_Paula_Romana rdf:type owl:NamedIndividual ,
+                                           :Obra ;
+                                  :autor :Claudio_de_Lorena ;
+                                  :esta_en :Sala6 ;
+                                  :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                  :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                  :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                                  :complejidad 7 ;
+                                  :dimensiones 2.8 ;
+                                  :nombre "El Embarco de Santa Paula Romana" ;
+                                  :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Expolio
+:El_Expolio rdf:type owl:NamedIndividual ,
+                     :Obra ;
+            :autor :El_Greco ;
+            :esta_en :Sala1 ;
+            :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+            :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+            :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+            :complejidad 8 ;
+            :dimensiones 2.60 ;
+            :nombre "El Expolio" ;
+            :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Greco
+:El_Greco rdf:type owl:NamedIndividual ,
+                   :Pintor ;
+          :nacionalidad :Espana ;
+          :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+          :nombre "El Greco" ;
+          :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Jardin_de_la_Villa_Medici
+:El_Jardin_de_la_Villa_Medici rdf:type owl:NamedIndividual ,
+                                       :Obra ;
+                              :autor :Diego_Velazquez ;
+                              :esta_en :Sala6 ;
+                              :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                              :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                              :tiene_tematica <http://webprotege.stanford.edu/RDSAfAtiCShSR64jVRR7L4n> ;
+                              :complejidad 6 ;
+                              :dimensiones 0.81 ;
+                              :nombre "El Jardin de la Villa Medici" ;
+                              :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Jardin_de_la_Villa_Medici_en_Roma
+:El_Jardin_de_la_Villa_Medici_en_Roma rdf:type owl:NamedIndividual ,
+                                               :Obra ;
+                                      :autor :Diego_Velazquez ;
+                                      :esta_en :Sala6 ;
+                                      :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                      :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                      :tiene_tematica <http://webprotege.stanford.edu/RDSAfAtiCShSR64jVRR7L4n> ;
+                                      :complejidad 6 ;
+                                      :dimensiones 0.81 ;
+                                      :nombre "El Jardin de la Villa Medici en Roma" ;
+                                      :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Jardin_de_las_Delicias
+:El_Jardin_de_las_Delicias rdf:type owl:NamedIndividual ,
+                                    :Obra ;
+                           :autor :El_Bosco ;
+                           :esta_en :Sala1 ;
+                           :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                           :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                           :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                           :complejidad 10 ;
+                           :dimensiones 3.9 ;
+                           :nombre "El Jardin de las Delicias" ;
+                           :popularidad 10 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Jardin_de_las_Delicias_panel_derecho
+:El_Jardin_de_las_Delicias_panel_derecho rdf:type owl:NamedIndividual ,
+                                                  :Obra ;
+                                         :autor :El_Bosco ;
+                                         :esta_en :Sala1 ;
+                                         :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                                         :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                                         :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                                         :complejidad 9 ;
+                                         :dimensiones 1.3 ;
+                                         :nombre "El Jardin de las Delicias panel derecho" ;
+                                         :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Jardin_de_las_Delicias_panel_izquierdo
+:El_Jardin_de_las_Delicias_panel_izquierdo rdf:type owl:NamedIndividual ,
+                                                    :Obra ;
+                                           :autor :El_Bosco ;
+                                           :esta_en :Sala1 ;
+                                           :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                                           :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                                           :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                                           :complejidad 9 ;
+                                           :dimensiones 1.3 ;
+                                           :nombre "El Jardin de las Delicias panel izquierdo" ;
+                                           :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Juicio_de_Paris
+:El_Juicio_de_Paris rdf:type owl:NamedIndividual ,
+                             :Obra ;
+                    :autor :Peter_Paul_Rubens ;
+                    :esta_en :Sala2 ;
+                    :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                    :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                    :tiene_tematica <http://webprotege.stanford.edu/RCv3q6THjYQY8gaZsl59mvg> ;
+                    :complejidad 8 ;
+                    :dimensiones 3.6 ;
+                    :nombre "El Juicio de Paris" ;
+                    :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Lavatorio
+:El_Lavatorio rdf:type owl:NamedIndividual ,
+                       :Obra ;
+              :autor :Tintoretto ;
+              :esta_en :Sala2 ;
+              :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+              :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+              :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+              :complejidad 8 ;
+              :dimensiones 2.8 ;
+              :nombre "El Lavatorio" ;
+              :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Pasmo_de_Sicilia
+:El_Pasmo_de_Sicilia rdf:type owl:NamedIndividual ,
+                              :Obra ;
+                     :autor :Rafael_Sanzio ;
+                     :esta_en :Sala2 ;
+                     :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                     :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                     :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                     :complejidad 9 ;
+                     :dimensiones 2.45 ;
+                     :nombre "El Pasmo de Sicilia" ;
+                     :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Perro
+:El_Perro rdf:type owl:NamedIndividual ,
+                   :Obra ;
+          :autor :Francisco_de_Goya ;
+          :esta_en :Sala10 ;
+          :pertenece_a_la_epoca <http://webprotege.stanford.edu/RC811Wq4dQab2ER4WaZa2oa> ;
+          :pertenece_al_movimiento <http://webprotege.stanford.edu/R9q9fACeutf0vF2kfsAK1ft> ;
+          :tiene_tematica <http://webprotege.stanford.edu/RB3VEWwuYiGjeM8bBe194BC> ;
+          :complejidad 7 ;
+          :dimensiones 0.6 ;
+          :nombre "El Perro" ;
+          :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Sueno_de_Jacob
+:El_Sueno_de_Jacob rdf:type owl:NamedIndividual ,
+                            :Obra ;
+                   :autor :Jose_de_Ribera ;
+                   :esta_en :Sala6 ;
+                   :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                   :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                   :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                   :complejidad 7 ;
+                   :dimensiones 2.8 ;
+                   :nombre "El Sueno de Jacob" ;
+                   :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_Triunfo_de_Baco
+:El_Triunfo_de_Baco rdf:type owl:NamedIndividual ,
+                             :Obra ;
+                    :autor :Diego_Velazquez ;
+                    :esta_en :Sala7 ;
+                    :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                    :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                    :tiene_tematica <http://webprotege.stanford.edu/RCv3q6THjYQY8gaZsl59mvg> ;
+                    :complejidad 8 ;
+                    :dimensiones 2.26 ;
+                    :nombre "El Triunfo de Baco" ;
+                    :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#El_triunfo_de_la_muerte
+:El_triunfo_de_la_muerte rdf:type owl:NamedIndividual ,
+                                  :Obra ;
+                         :autor :Pieter_Bruegel_el_Viejo ;
+                         :esta_en :Sala2 ;
+                         :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                         :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                         :tiene_tematica <http://webprotege.stanford.edu/RB3VEWwuYiGjeM8bBe194BC> ;
+                         :complejidad 9 ;
+                         :dimensiones 2 ;
+                         :nombre "El triunfo de la muerte" ;
+                         :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Espana
+:Espana rdf:type owl:NamedIndividual ,
+                 :Pais ;
+        :nombre "Espana" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Fra_Angelico
+:Fra_Angelico rdf:type owl:NamedIndividual ,
+                       :Pintor ;
+              :nacionalidad :Italia ;
+              :pertenece_a_la_epoca <http://webprotege.stanford.edu/R9joZjx9kj4bLs6toW0un0g> ;
+              :nombre "Fra Angelico" ;
+              :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Francia
+:Francia rdf:type owl:NamedIndividual ,
+                  :Pais ;
+         :nombre "Francia" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Francisco_Bayeu_y_Subias
+:Francisco_Bayeu_y_Subias rdf:type owl:NamedIndividual ,
+                                   :Pintor ;
+                          :nacionalidad :Espana ;
+                          :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDEoeCd6SEk4O5qed4T1kXm> ;
+                          :nombre "Francisco Bayeu y Subias" ;
+                          :popularidad 4 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Francisco_de_Goya
+:Francisco_de_Goya rdf:type owl:NamedIndividual ,
+                            :Pintor ;
+                   :nacionalidad :Espana ;
+                   :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDEoeCd6SEk4O5qed4T1kXm> ;
+                   :nombre "Francisco de Goya" ;
+                   :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Francisco_de_Zurbaran
+:Francisco_de_Zurbaran rdf:type owl:NamedIndividual ,
+                                :Pintor ;
+                       :nacionalidad :Espana ;
+                       :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                       :nombre "Francisco de Zurbaran" ;
+                       :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Holanda
+:Holanda rdf:type owl:NamedIndividual ,
+                  :Pais ;
+         :nombre "Holanda" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Italia
+:Italia rdf:type owl:NamedIndividual ,
+                 :Pais ;
+        :nombre "Italia" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Jose_de_Ribera
+:Jose_de_Ribera rdf:type owl:NamedIndividual ,
+                         :Pintor ;
+                :nacionalidad :Espana ;
+                :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                :nombre "Jose de Ribera" ;
+                :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Judith_en_el_Banquete_de_Holofernes
+:Judith_en_el_Banquete_de_Holofernes rdf:type owl:NamedIndividual ,
+                                              :Obra ;
+                                     :autor :Lucas_Cranach_el_Viejo ;
+                                     :esta_en :Sala4 ;
+                                     :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                     :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                                     :tiene_tematica <http://webprotege.stanford.edu/Rx9viDsujfLuCpTjfYZhKT> ;
+                                     :complejidad 8 ;
+                                     :dimensiones 1.52 ;
+                                     :nombre "Judith en el Banquete de Holofernes" ;
+                                     :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Adoracion_de_los_Magos
+:La_Adoracion_de_los_Magos rdf:type owl:NamedIndividual ,
+                                    :Obra ;
+                           :autor :Peter_Paul_Rubens ;
+                           :esta_en :Sala7 ;
+                           :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                           :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                           :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                           :complejidad 8 ;
+                           :dimensiones 2.8 ;
+                           :nombre "La Adoracion de los Magos" ;
+                           :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Anunciacion
+:La_Anunciacion rdf:type owl:NamedIndividual ,
+                         :Obra ;
+                :autor :Fra_Angelico ;
+                :esta_en :Sala2 ;
+                :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                :pertenece_al_movimiento <http://webprotege.stanford.edu/R7UjkIiR2fjXzeKkji1MY1l> ;
+                :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                :complejidad 9 ;
+                :dimensiones 3.11 ;
+                :nombre "La Anunciacion" ;
+                :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Bacanal_de_los_Andrios
+:La_Bacanal_de_los_Andrios rdf:type owl:NamedIndividual ,
+                                    :Obra ;
+                           :autor :Tiziano ;
+                           :esta_en :Sala2 ;
+                           :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                           :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                           :tiene_tematica <http://webprotege.stanford.edu/RCv3q6THjYQY8gaZsl59mvg> ;
+                           :complejidad 8 ;
+                           :dimensiones 3.52 ;
+                           :nombre "El Bacanal de los Andrios" ;
+                           :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Fragua_de_Vulcano
+:La_Fragua_de_Vulcano rdf:type owl:NamedIndividual ,
+                               :Obra ;
+                      :autor :Jose_de_Ribera ;
+                      :esta_en :Sala7 ;
+                      :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                      :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                      :tiene_tematica <http://webprotege.stanford.edu/RCv3q6THjYQY8gaZsl59mvg> ;
+                      :complejidad 8 ;
+                      :dimensiones 2.22 ;
+                      :nombre "La Fragua de Vulcano" ;
+                      :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Immaculada_Concepcion
+:La_Immaculada_Concepcion rdf:type owl:NamedIndividual ,
+                                   :Obra ;
+                          :autor :Bartolome_Esteban_Murillo ;
+                          :esta_en :Sala7 ;
+                          :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                          :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                          :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                          :complejidad 8 ;
+                          :dimensiones 2.8 ;
+                          :nombre "La Immaculada Concepcion" ;
+                          :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Magdalena_penitente
+:La_Magdalena_penitente rdf:type owl:NamedIndividual ,
+                                 :Obra ;
+                        :autor :Jose_de_Ribera ;
+                        :esta_en :Sala7 ;
+                        :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                        :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                        :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                        :complejidad 7 ;
+                        :nombre "La Magdalena penitente" ;
+                        :popularidad 1.1 ,
+                                     7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Maja_Desnuda
+:La_Maja_Desnuda rdf:type owl:NamedIndividual ,
+                          :Obra ;
+                 :autor :Francisco_de_Goya ;
+                 :esta_en :Sala7 ;
+                 :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                 :pertenece_al_movimiento <http://webprotege.stanford.edu/RD24wXCtqjw5iFzancr678Z> ;
+                 :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                 :complejidad 7 ;
+                 :dimensiones 1.68 ;
+                 :nombre "La Maja Desnuda" ;
+                 :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Maja_Vestida
+:La_Maja_Vestida rdf:type owl:NamedIndividual ,
+                          :Obra ;
+                 :autor :Francisco_de_Goya ;
+                 :esta_en :Sala7 ;
+                 :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                 :pertenece_al_movimiento <http://webprotege.stanford.edu/RD24wXCtqjw5iFzancr678Z> ;
+                 :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                 :complejidad 7 ;
+                 :dimensiones 1.68 ;
+                 :nombre "La Maja Vestida" ;
+                 :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Natividad
+:La_Natividad rdf:type owl:NamedIndividual ,
+                       :Obra ;
+              :autor :El_Greco ;
+              :esta_en :Sala4 ;
+              :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+              :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+              :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+              :complejidad 8 ;
+              :dimensiones 2.2 ;
+              :nombre "La Natividad" ;
+              :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Primavera
+:La_Primavera rdf:type owl:NamedIndividual ,
+                       :Obra ;
+              :autor :Sandro_Botticelli ;
+              :esta_en :Sala3 ;
+              :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+              :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+              :tiene_tematica <http://webprotege.stanford.edu/RCv3q6THjYQY8gaZsl59mvg> ;
+              :complejidad 9 ;
+              :dimensiones 2.07 ;
+              :nombre "La Primavera" ;
+              :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Rendicion_de_Breda
+:La_Rendicion_de_Breda rdf:type owl:NamedIndividual ,
+                                :Obra ;
+                       :autor :Diego_Velazquez ;
+                       :esta_en :Sala7 ;
+                       :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                       :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                       :tiene_tematica <http://webprotege.stanford.edu/R8lFZHymIxM5rOaG8Ci4Rwn> ;
+                       :complejidad 9 ;
+                       :dimensiones 11.41 ;
+                       :nombre "La Rendicion de Breda" ;
+                       :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Sagrada_Familia
+:La_Sagrada_Familia rdf:type owl:NamedIndividual ,
+                             :Obra ;
+                    :autor :Francisco_Bayeu_y_Subias ;
+                    :esta_en :Sala4 ;
+                    :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                    :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                    :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                    :complejidad 8 ;
+                    :dimensiones 2.8 ;
+                    :nombre "La Sagrada Familia" ;
+                    :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Sagrada_Familia_del_Pajarito
+:La_Sagrada_Familia_del_Pajarito rdf:type owl:NamedIndividual ,
+                                          :Obra ;
+                                 :autor :Bartolome_Esteban_Murillo ;
+                                 :esta_en :Sala8 ;
+                                 :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                 :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                 :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                                 :complejidad 7 ;
+                                 :dimensiones 1.2 ;
+                                 :nombre "La Sagrada Familia del Pajarito" ;
+                                 :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Trinidad
+:La_Trinidad rdf:type owl:NamedIndividual ,
+                      :Obra ;
+             :autor :El_Greco ;
+             :esta_en :Sala3 ;
+             :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+             :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+             :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+             :complejidad 8 ;
+             :dimensiones 4.8 ;
+             :nombre "La Trinidad" ;
+             :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Venus_del_Espejo
+:La_Venus_del_Espejo rdf:type owl:NamedIndividual ,
+                              :Obra ;
+                     :autor :Diego_Velazquez ;
+                     :esta_en :Sala8 ;
+                     :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                     :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                     :tiene_tematica <http://webprotege.stanford.edu/RCv3q6THjYQY8gaZsl59mvg> ;
+                     :complejidad 8 ;
+                     :dimensiones 1.40 ;
+                     :nombre "La Venus del Espejo" ;
+                     :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Virgen_con_el_Nino_y_los_Santos
+:La_Virgen_con_el_Nino_y_los_Santos rdf:type owl:NamedIndividual ,
+                                             :Obra ;
+                                    :autor :El_Greco ;
+                                    :esta_en :Sala3 ;
+                                    :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                                    :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                                    :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                                    :complejidad 8 ;
+                                    :dimensiones 1.8 ;
+                                    :nombre "La Virgen con el Nino y los Santos" ;
+                                    :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#La_Virgen_de_las_Rocas
+:La_Virgen_de_las_Rocas rdf:type owl:NamedIndividual ,
+                                 :Obra ;
+                        :autor :Leonardo_da_Vinci ;
+                        :esta_en :Sala3 ;
+                        :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                        :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                        :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                        :complejidad 9 ;
+                        :dimensiones 1.8 ;
+                        :nombre "La Virgen de las Rocas" ;
+                        :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Las_Hilanderas
+:Las_Hilanderas rdf:type owl:NamedIndividual ,
+                         :Obra ;
+                :autor :Diego_Velazquez ;
+                :esta_en :Sala8 ;
+                :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                :tiene_tematica <http://webprotege.stanford.edu/RCv3q6THjYQY8gaZsl59mvg> ;
+                :complejidad 9 ;
+                :dimensiones 4.0 ;
+                :nombre "Las Hilanderas" ;
+                :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Las_Meninas
+:Las_Meninas rdf:type owl:NamedIndividual ,
+                      :Obra ;
+             :autor :Diego_Velazquez ;
+             :esta_en :Sala8 ;
+             :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+             :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+             :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+             :complejidad 10 ;
+             :dimensiones 8.94 ;
+             :nombre "Las Meninas" ;
+             :popularidad 10 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Las_Tres_Gracias
+:Las_Tres_Gracias rdf:type owl:NamedIndividual ,
+                           :Obra ;
+                  :autor :Peter_Paul_Rubens ;
+                  :esta_en :Sala8 ;
+                  :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                  :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                  :tiene_tematica <http://webprotege.stanford.edu/RCv3q6THjYQY8gaZsl59mvg> ;
+                  :complejidad 8 ;
+                  :dimensiones 2.21 ;
+                  :nombre "Las Tres Gracias" ;
+                  :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Leonardo_da_Vinci
+:Leonardo_da_Vinci rdf:type owl:NamedIndividual ,
+                            :Pintor ;
+                   :nacionalidad :Italia ;
+                   :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                   :nombre "Leonardo da Vinci" ;
+                   :popularidad 10 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Los_Desposorios_de_la_Virgen
+:Los_Desposorios_de_la_Virgen rdf:type owl:NamedIndividual ,
+                                       :Obra ;
+                              :autor :Rafael_Sanzio ;
+                              :esta_en :Sala3 ;
+                              :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                              :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                              :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                              :complejidad 9 ;
+                              :dimensiones 2.3 ;
+                              :nombre "Los Desposorios de la Virgen" ;
+                              :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Los_Fusilamientos_de_Torrijos
+:Los_Fusilamientos_de_Torrijos rdf:type owl:NamedIndividual ,
+                                        :Obra ;
+                               :autor :Antonio_Gisbert ;
+                               :esta_en :Sala10 ;
+                               :pertenece_a_la_epoca <http://webprotege.stanford.edu/RC811Wq4dQab2ER4WaZa2oa> ;
+                               :pertenece_al_movimiento <http://webprotege.stanford.edu/R9q9fACeutf0vF2kfsAK1ft> ;
+                               :tiene_tematica <http://webprotege.stanford.edu/R8lFZHymIxM5rOaG8Ci4Rwn> ;
+                               :complejidad 8 ;
+                               :dimensiones 2.66 ;
+                               :nombre "Los Fusilamientos de Torrijos" ;
+                               :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Los_Musicos
+:Los_Musicos rdf:type owl:NamedIndividual ,
+                      :Obra ;
+             :autor :Diego_Velazquez ;
+             :esta_en :Sala8 ;
+             :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+             :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+             :tiene_tematica <http://webprotege.stanford.edu/R8gA8NA0YPE7ramA7D0Rwq8> ;
+             :complejidad 6 ;
+             :dimensiones 1.10 ;
+             :nombre "Los Musicos" ;
+             :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Lucas_Cranach_el_Viejo
+:Lucas_Cranach_el_Viejo rdf:type owl:NamedIndividual ,
+                                 :Pintor ;
+                        :nacionalidad :Alemania ;
+                        :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                        :nombre "Lucas Cranach el Viejo" ;
+                        :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Paises_Bajos
+:Paises_Bajos rdf:type owl:NamedIndividual ,
+                       :Pais ;
+              :nombre "Paises Bajos" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Peter_Paul_Rubens
+:Peter_Paul_Rubens rdf:type owl:NamedIndividual ,
+                            :Pintor ;
+                   :nacionalidad :Belgica ;
+                   :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                   :nombre "Peter Paul Rubens" ;
+                   :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Pieter_Bruegel_el_Viejo
+:Pieter_Bruegel_el_Viejo rdf:type owl:NamedIndividual ,
+                                  :Pintor ;
+                         :nacionalidad :Paises_Bajos ;
+                         :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                         :nombre "Pieter Brugel el Viejo" ;
+                         :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Rafael_Sanzio
+:Rafael_Sanzio rdf:type owl:NamedIndividual ,
+                        :Pintor ;
+               :nacionalidad :Italia ;
+               :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+               :nombre "Rafael Sanzio" ;
+               :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Retrato_de_Carlos_III_cazador
+:Retrato_de_Carlos_III_cazador rdf:type owl:NamedIndividual ,
+                                        :Obra ;
+                               :autor :Francisco_de_Goya ;
+                               :esta_en :Sala10 ;
+                               :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDEoeCd6SEk4O5qed4T1kXm> ;
+                               :pertenece_al_movimiento <http://webprotege.stanford.edu/RD24wXCtqjw5iFzancr678Z> ;
+                               :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                               :complejidad 7 ;
+                               :dimensiones 2.7 ;
+                               :nombre "Retrato de Carlos III cazador" ;
+                               :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Retrato_de_Felipe_III_a_caballo
+:Retrato_de_Felipe_III_a_caballo rdf:type owl:NamedIndividual ,
+                                          :Obra ;
+                                 :autor :Diego_Velazquez ;
+                                 :esta_en :Sala8 ;
+                                 :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                 :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                 :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                                 :complejidad 9 ;
+                                 :dimensiones 3.2 ;
+                                 :nombre "Retrato de Felipe III a caballo" ;
+                                 :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Retrato_de_Felipe_IV
+:Retrato_de_Felipe_IV rdf:type owl:NamedIndividual ,
+                               :Obra ;
+                      :autor :Diego_Velazquez ;
+                      :esta_en :Sala9 ;
+                      :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                      :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                      :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                      :complejidad 8 ;
+                      :dimensiones 2.56 ;
+                      :nombre "Retrato de Felipe IV" ;
+                      :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Retrato_de_Inocencio_X
+:Retrato_de_Inocencio_X rdf:type owl:NamedIndividual ,
+                                 :Obra ;
+                        :autor :Diego_Velazquez ;
+                        :esta_en :Sala9 ;
+                        :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                        :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                        :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                        :complejidad 9 ;
+                        :dimensiones 1.40 ;
+                        :nombre "Retrato de Inocencio X" ;
+                        :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Retrato_de_Isabel_Clara_Eugenia
+:Retrato_de_Isabel_Clara_Eugenia rdf:type owl:NamedIndividual ,
+                                          :Obra ;
+                                 :autor :Peter_Paul_Rubens ;
+                                 :esta_en :Sala4 ;
+                                 :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                                 :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                 :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                                 :complejidad 8 ;
+                                 :dimensiones 1.8 ;
+                                 :nombre "Retrato de Isabel Clara Eugenia" ;
+                                 :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Retrato_de_Isabel_de_Borbon
+:Retrato_de_Isabel_de_Borbon rdf:type owl:NamedIndividual ,
+                                      :Obra ;
+                             :autor :Claudio_Coello ;
+                             :esta_en :Sala9 ;
+                             :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                             :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                             :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                             :complejidad 7 ;
+                             :dimensiones 2.08 ;
+                             :nombre "Retrato de Isabel de Borbon" ;
+                             :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Retrato_de_Maria_Luisa
+:Retrato_de_Maria_Luisa rdf:type owl:NamedIndividual ,
+                                 :Obra ;
+                        :autor :Claudio_Coello ;
+                        :esta_en :Sala9 ;
+                        :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                        :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                        :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                        :complejidad 7 ;
+                        :dimensiones 2.3 ;
+                        :nombre "Retrato de Maria Luisa" ;
+                        :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Retrato_de_un_hombre_joven
+:Retrato_de_un_hombre_joven rdf:type owl:NamedIndividual ,
+                                     :Obra ;
+                            :autor :Rafael_Sanzio ;
+                            :esta_en :Sala3 ;
+                            :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                            :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                            :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                            :complejidad 7 ;
+                            :dimensiones 0.70 ;
+                            :nombre "Retrato de un hombre joven" ;
+                            :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Retrato_encuestre_del_Duque_de_Lerma
+:Retrato_encuestre_del_Duque_de_Lerma rdf:type owl:NamedIndividual ,
+                                               :Obra ;
+                                      :autor :Tiziano ;
+                                      :esta_en :Sala3 ;
+                                      :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                      :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                                      :tiene_tematica <http://webprotege.stanford.edu/R85Rk6FdCCaASkyXGpyFqvn> ;
+                                      :complejidad 9 ;
+                                      :dimensiones 4.1 ;
+                                      :nombre "Retrato encuestre del Duque de Lerma" ;
+                                      :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Rogier_van_der_Weyden
+:Rogier_van_der_Weyden rdf:type owl:NamedIndividual ,
+                                :Pintor ;
+                       :nacionalidad :Paises_Bajos ;
+                       :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                       :nombre "Rogier van der Weyden" ;
+                       :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Sala1
+:Sala1 rdf:type owl:NamedIndividual ,
+                :Sala ;
+       :contigua_a :Sala2 ,
+                   :Sala3 ,
+                   :Sala4 ,
+                   :Sala5 ;
+       :nombre "Sala1" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Sala10
+:Sala10 rdf:type owl:NamedIndividual ,
+                 :Sala ;
+        :nombre "Sala10" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Sala2
+:Sala2 rdf:type owl:NamedIndividual ,
+                :Sala ;
+       :nombre "Sala2" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Sala3
+:Sala3 rdf:type owl:NamedIndividual ,
+                :Sala ;
+       :contigua_a :Sala6 ,
+                   :Sala8 ;
+       :nombre "Sala3" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Sala4
+:Sala4 rdf:type owl:NamedIndividual ,
+                :Sala ;
+       :contigua_a :Sala8 ;
+       :nombre "Sala4" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Sala5
+:Sala5 rdf:type owl:NamedIndividual ,
+                :Sala ;
+       :contigua_a :Sala8 ,
+                   :Sala9 ;
+       :nombre "Sala5" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Sala6
+:Sala6 rdf:type owl:NamedIndividual ,
+                :Sala ;
+       :contigua_a :Sala7 ;
+       :nombre "Sala6" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Sala7
+:Sala7 rdf:type owl:NamedIndividual ,
+                :Sala ;
+       :contigua_a :Sala10 ,
+                   :Sala8 ;
+       :nombre "Sala7" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Sala8
+:Sala8 rdf:type owl:NamedIndividual ,
+                :Sala ;
+       :contigua_a :Sala9 ;
+       :nombre "Sala8" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Sala9
+:Sala9 rdf:type owl:NamedIndividual ,
+                :Sala ;
+       :contigua_a :Sala10 ;
+       :nombre "Sala9" .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#San_Andres
+:San_Andres rdf:type owl:NamedIndividual ,
+                     :Obra ;
+            :autor :Jose_de_Ribera ;
+            :esta_en :Sala9 ;
+            :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+            :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+            :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+            :complejidad 6 ;
+            :dimensiones 1.58 ;
+            :nombre "San Andres" ;
+            :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#San_Jeronimo
+:San_Jeronimo rdf:type owl:NamedIndividual ,
+                       :Obra ;
+              :autor :Jose_de_Ribera ;
+              :esta_en :Sala9 ;
+              :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+              :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+              :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+              :complejidad 7 ;
+              :dimensiones 2.10 ;
+              :nombre "San Jeronimo" ;
+              :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#San_Juan_Bautista_en_el_desierto
+:San_Juan_Bautista_en_el_desierto rdf:type owl:NamedIndividual ,
+                                           :Obra ;
+                                  :autor :Caravaggio ;
+                                  :esta_en :Sala9 ;
+                                  :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                  :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                                  :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                                  :complejidad 7 ;
+                                  :dimensiones 2 ;
+                                  :nombre "San Juan Bautista en el desierto" ;
+                                  :popularidad 7 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Sandro_Botticelli
+:Sandro_Botticelli rdf:type owl:NamedIndividual ,
+                            :Pintor ;
+                   :nacionalidad :Italia ;
+                   :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                   :nombre "Sandro Botticelli" ;
+                   :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Santa_Isabel_de_Portugal
+:Santa_Isabel_de_Portugal rdf:type owl:NamedIndividual ,
+                                   :Obra ;
+                          :autor :Francisco_de_Zurbaran ;
+                          :esta_en :Sala10 ;
+                          :pertenece_a_la_epoca <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                          :pertenece_al_movimiento <http://webprotege.stanford.edu/RndcuGUYjxB4N8SGQclSS1> ;
+                          :tiene_tematica <http://webprotege.stanford.edu/RtuKZIHfmkIcy0raSXYPsI> ;
+                          :complejidad 8 ;
+                          :dimensiones 1.72 ;
+                          :nombre "Santa Isabel de Portugal" ;
+                          :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Saturno_devorando_a_su_hijo
+:Saturno_devorando_a_su_hijo rdf:type owl:NamedIndividual ,
+                                      :Obra ;
+                             :autor :Francisco_de_Goya ;
+                             :esta_en :Sala10 ;
+                             :pertenece_a_la_epoca <http://webprotege.stanford.edu/RC811Wq4dQab2ER4WaZa2oa> ;
+                             :pertenece_al_movimiento <http://webprotege.stanford.edu/R9q9fACeutf0vF2kfsAK1ft> ;
+                             :tiene_tematica <http://webprotege.stanford.edu/RCv3q6THjYQY8gaZsl59mvg> ;
+                             :complejidad 7 ;
+                             :dimensiones 1.46 ;
+                             :nombre "Saturno devorando a su hijo" ;
+                             :popularidad 9 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Tintoretto
+:Tintoretto rdf:type owl:NamedIndividual ,
+                     :Pintor ;
+            :nacionalidad :Italia ;
+            :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+            :nombre "Tintoretto" ;
+            :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Tiziano
+:Tiziano rdf:type owl:NamedIndividual ,
+                  :Pintor ;
+         :nacionalidad :Italia ;
+         :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+         :nombre "Tiziano" ;
+         :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Venus_y_Adonis
+:Venus_y_Adonis rdf:type owl:NamedIndividual ,
+                         :Obra ;
+                :autor :Tiziano ;
+                :esta_en :Sala4 ;
+                :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                :tiene_tematica <http://webprotege.stanford.edu/RCv3q6THjYQY8gaZsl59mvg> ;
+                :complejidad 8 ;
+                :dimensiones 1.8 ;
+                :nombre "Venus y Adonis" ;
+                :popularidad 8 .
+
+
+###  http://www.semanticweb.org/adri/ontologies/2024/10/#Vista_de_Toledo
+:Vista_de_Toledo rdf:type owl:NamedIndividual ,
+                          :Obra ;
+                 :autor :El_Greco ;
+                 :esta_en :Sala4 ;
+                 :pertenece_a_la_epoca <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                 :pertenece_al_movimiento <http://webprotege.stanford.edu/RDNTaEdqVqd5unwzX6tb7D8> ;
+                 :tiene_tematica <http://webprotege.stanford.edu/RDSAfAtiCShSR64jVRR7L4n> ;
+                 :complejidad 8 ;
+                 :dimensiones 1.30 ;
+                 :nombre "Vista de Toledo" ;
+                 :popularidad 8 .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Corriente
+                :Escuela
+                :Estilo
+                :Periodo_Pictorico
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Epoca
+                :Movimiento
+                :Obra
+                :Pintor
+                :Sala
+                :Visita
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

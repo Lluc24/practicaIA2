@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <rect x="0" y="0" width="820" height="500" fill="#fcfcfb" rx="12"/>
+  <text x="410" y="34" text-anchor="middle" font-size="15" font-weight="600" fill="#52514e">Museum room-adjacency graph (contigua_a) — 10 rooms, from the ontology</text>
+
+  <!-- Edges -->
+  <g stroke="#c3c2b7" stroke-width="2">
+    <line x1="120" y1="250" x2="320" y2="80"/>  <!-- 1-2 -->
+    <line x1="120" y1="250" x2="320" y2="190"/> <!-- 1-3 -->
+    <line x1="120" y1="250" x2="320" y2="310"/> <!-- 1-4 -->
+    <line x1="120" y1="250" x2="320" y2="420"/> <!-- 1-5 -->
+    <line x1="320" y1="190" x2="520" y2="80"/>  <!-- 3-6 -->
+    <line x1="320" y1="190" x2="520" y2="250"/> <!-- 3-8 -->
+    <line x1="320" y1="310" x2="520" y2="250"/> <!-- 4-8 -->
+    <line x1="320" y1="420" x2="520" y2="250"/> <!-- 5-8 -->
+    <line x1="320" y1="420" x2="520" y2="420"/> <!-- 5-9 -->
+    <line x1="520" y1="80" x2="720" y2="80"/>   <!-- 6-7 -->
+    <line x1="720" y1="80" x2="720" y2="350"/>  <!-- 7-10 -->
+    <line x1="520" y1="250" x2="720" y2="80"/>  <!-- 7-8 -->
+    <line x1="520" y1="250" x2="520" y2="420"/> <!-- 8-9 -->
+    <line x1="520" y1="420" x2="720" y2="350"/> <!-- 9-10 -->
+  </g>
+
+  <!-- Nodes -->
+  <g font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">
+    <circle cx="120" cy="250" r="30" fill="#2a78d6"/><text x="120" y="255">Sala1</text>
+    <circle cx="320" cy="80"  r="30" fill="#2a78d6"/><text x="320" y="85">Sala2</text>
+    <circle cx="320" cy="190" r="30" fill="#2a78d6"/><text x="320" y="195">Sala3</text>
+    <circle cx="320" cy="310" r="30" fill="#2a78d6"/><text x="320" y="315">Sala4</text>
+    <circle cx="320" cy="420" r="30" fill="#2a78d6"/><text x="320" y="425">Sala5</text>
+    <circle cx="520" cy="80"  r="30" fill="#1baf7a"/><text x="520" y="85">Sala6</text>
+    <circle cx="520" cy="250" r="30" fill="#1baf7a"/><text x="520" y="255">Sala8</text>
+    <circle cx="520" cy="420" r="30" fill="#1baf7a"/><text x="520" y="425">Sala9</text>
+    <circle cx="720" cy="80"  r="30" fill="#eb6834"/><text x="720" y="85">Sala7</text>
+    <circle cx="720" cy="350" r="30" fill="#eb6834"/><text x="720" y="355">Sala10</text>
+  </g>
+
+  <text x="410" y="475" text-anchor="middle" font-size="12" fill="#898781">Module D walks this graph to keep each day's route physically coherent — adjacent rooms only, no backtracking across the museum.</text>
+</svg>

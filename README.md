@@ -12,22 +12,6 @@ Built with **CLIPS** (rule engine) and an **OWL ontology** (authored in **Proté
 
 ---
 
-## Table of contents
-
-- [The problem](#the-problem)
-- [Why a Knowledge-Based System?](#why-a-knowledge-based-system)
-- [Why is this problem hard? (NP-hardness)](#why-is-this-problem-hard-np-hardness)
-- [Why CLIPS and rule-based programming?](#why-clips-and-rule-based-programming)
-- [What is an ontology, and why build one?](#what-is-an-ontology-and-why-build-one)
-- [System architecture](#system-architecture)
-- [The reasoning pipeline](#the-reasoning-pipeline)
-- [Repository structure](#repository-structure)
-- [How to run it](#how-to-run-it)
-- [Example run](#example-run)
-- [Sources](#sources)
-
----
-
 ## The problem
 
 Museums are a major cultural attraction, but planning an efficient visit is hard: large collections spanning multiple centuries, styles and themes have to be reduced to a route that fits a visitor's available time. A good itinerary must:
@@ -85,19 +69,13 @@ The ontology (`codigo-fuente/Ontologia.ttl`) is a standard OWL/Turtle file and r
 2. `File → Open` and select `codigo-fuente/Ontologia.ttl`
 3. Use the *Classes*, *Object Properties*, and *Individuals* tabs to explore the class hierarchy, relations, and the 75 instantiated artworks.
 
+One relation worth visualizing on its own is `contigua_a` (room adjacency) — the graph Module D actually walks to keep each day's route physically coherent:
+
+<p align="center"><img src="assets/room-graph.svg" alt="Room adjacency graph of the 10 museum rooms, derived from the ontology's contigua_a relation" width="700"></p>
+
 ## System architecture
 
-```
-   ┌──────────────────────────┐        ┌──────────────────────────┐
-   │  User requirements        │        │  Museum knowledge         │
-   │  (days, hours, group,     │        │  (ontology: artworks,     │
-   │   knowledge, preferences) │        │   painters, rooms, ...)   │
-   └─────────────┬─────────────┘        └─────────────┬─────────────┘
-                 │                                    │
-                 └───────────────┬────────────────────┘
-                                 ▼
-                      Optimal visit itinerary
-```
+<p align="center"><img src="assets/architecture.svg" alt="System architecture: user requirements and the museum ontology feed the CLIPS rule engine, which outputs a personalized itinerary" width="800"></p>
 
 The full domain + rules are combined into a single ready-to-run file, `clips-programa.clp`, assembled from:
 
@@ -116,22 +94,7 @@ The full domain + rules are combined into a single ready-to-run file, `clips-pro
 
 The system follows the **heuristic classification** methodology (concrete problem → abstract problem → abstract solution → concrete solution → output), a classical AI strategy for problems whose exact solution space is too large to search exhaustively:
 
-```
- Problem                         Solution
- Concrete  ──abstraction──▶  Abstract  ──heuristic──▶  Abstract
-  (Module A)                 (Module B)  association     (Module C)
-                                                              │
-                                                        refinement /
-                                                        adaptation
-                                                              │
-                                                              ▼
-                                                        Concrete Solution
-                                                          (Module D)
-                                                              │
-                                                              ▼
-                                                     Printed itinerary
-                                                     (Module Imprimir)
-```
+<p align="center"><img src="assets/pipeline.svg" alt="Heuristic classification pipeline: concrete problem, abstract problem, abstract solution, concrete solution, output" width="900"></p>
 
 1. **Problem concreto (Module A):** interactively collects raw facts from the user — number of days, hours/day, group size and composition (children/retirees), art knowledge level (0–10), and an open-ended list of preferences (painter / theme / movement / era) picked from the ontology's actual instances.
 2. **Problema abstracto (Module B):** discretizes that raw input into qualitative categories — e.g. how many artworks can realistically be seen (low/medium/high), whether rest breaks are needed, an abstracted knowledge level, and which *types* of interest exist (without yet resolving to specific instances).

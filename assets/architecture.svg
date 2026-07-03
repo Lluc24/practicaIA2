@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 345" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52514e"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="345" fill="#fcfcfb" rx="12"/>
+
+  <!-- Input boxes -->
+  <rect x="30" y="30" width="330" height="110" rx="10" fill="#cde2fb" stroke="#2a78d6" stroke-width="1.5"/>
+  <text x="195" y="65" text-anchor="middle" font-size="17" font-weight="600" fill="#0b0b0b">User requirements</text>
+  <text x="195" y="90" text-anchor="middle" font-size="13" fill="#52514e">days · hours/day · group</text>
+  <text x="195" y="110" text-anchor="middle" font-size="13" fill="#52514e">art knowledge · preferences</text>
+
+  <rect x="540" y="30" width="330" height="110" rx="10" fill="#f6ddc2" stroke="#eb6834" stroke-width="1.5"/>
+  <text x="705" y="65" text-anchor="middle" font-size="17" font-weight="600" fill="#0b0b0b">Museum ontology</text>
+  <text x="705" y="90" text-anchor="middle" font-size="13" fill="#52514e">75 artworks · painters · movements</text>
+  <text x="705" y="110" text-anchor="middle" font-size="13" fill="#52514e">eras · themes · 10 rooms (Protégé)</text>
+
+  <!-- Arrows down to engine -->
+  <path d="M195,140 L195,175 L420,175" fill="none" stroke="#52514e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M705,140 L705,175 L480,175" fill="none" stroke="#52514e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Engine box -->
+  <rect x="300" y="185" width="300" height="80" rx="10" fill="#0b0b0b"/>
+  <text x="450" y="218" text-anchor="middle" font-size="17" font-weight="600" fill="#ffffff">CLIPS Rule Engine</text>
+  <text x="450" y="240" text-anchor="middle" font-size="13" fill="#c3c2b7">heuristic classification · 5 modules</text>
+
+  <!-- Arrow down to output -->
+  <path d="M450,265 L450,290" fill="none" stroke="#52514e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Output box -->
+  <rect x="255" y="296" width="390" height="40" rx="10" fill="#e5f3ec" stroke="#1baf7a" stroke-width="1.5"/>
+  <text x="450" y="321" text-anchor="middle" font-size="16" font-weight="600" fill="#0b0b0b">Personalized, day-by-day museum itinerary</text>
+</svg>
